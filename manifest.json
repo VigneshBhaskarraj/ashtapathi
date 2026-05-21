@@ -1,0 +1,20 @@
+{
+  "name": "Gīta Govinda · गीतगोविन्द",
+  "short_name": "Gīta Govinda",
+  "description": "Sacred love poetry of Jayadeva · 12th century CE · 24 Ashtapadis",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#04081A",
+  "theme_color": "#04081A",
+  "orientation": "portrait-primary",
+  "lang": "sa",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%2304081A'/><text y='360' x='256' text-anchor='middle' font-size='320' font-family='serif' fill='%23D8A52A'>ॐ</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

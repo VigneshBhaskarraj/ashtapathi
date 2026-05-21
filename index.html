@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#04081A"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Gīta Govinda"/>
+<meta name="description" content="Sacred love poetry of Jayadeva · 12th century · 24 Ashtapadis with Sanskrit, Hindi, and audio"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Gīta Govinda · गीतगोविन्द</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04081A;--surf:#080D28;--surf2:#0E1538;
+  --gold:#D8A52A;--gold-l:#F2C85A;--gold-d:#9A7320;
+  --teal:#4FD3EC;--saffron:#F0934A;--saffron-d:#C27340;
+  --lotus:#E8699A;--cream:#F5EDD0;--cream-s:#D8CEAC;--cream-d:#A89E7C;
+  --bdr:rgba(216,165,42,.22);
+  --st:env(safe-area-inset-top,0px);
+  --sb:env(safe-area-inset-bottom,0px);
+}
+html,body,#root{height:100%}
+body{background:var(--bg);color:var(--cream);font-family:'EB Garamond',serif;overflow:hidden;-webkit-tap-highlight-color:transparent}
+
+/* Splash */
+#splash{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:14px}
+.sp-om{font-family:'Noto Serif Devanagari',serif;font-size:56px;color:var(--gold);animation:glo 2s ease-in-out infinite alternate}
+.sp-txt{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--cream-d);text-transform:uppercase}
+@keyframes glo{from{text-shadow:0 0 20px rgba(216,165,42,.3)}to{text-shadow:0 0 50px rgba(216,165,42,.9)}}
+
+/* Stars bg */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at 18% 28%,rgba(79,211,236,.07) 0%,transparent 58%),
+             radial-gradient(ellipse at 82% 72%,rgba(232,105,154,.06) 0%,transparent 58%)}
+
+/* Peacock watermark */
+.pf{position:fixed;right:0;top:0;bottom:0;width:180px;pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center}
+
+/* App root */
+.app{display:flex;height:100vh;overflow:hidden;position:relative}
+
+/* ── SIDEBAR (desktop only) ── */
+.sb{width:285px;min-width:285px;height:100vh;
+  background:linear-gradient(180deg,#060920 0%,#080D26 100%);
+  border-right:1px solid var(--bdr);display:flex;flex-direction:column;z-index:10;flex-shrink:0}
+.sb-head{padding:18px 18px 12px;border-bottom:1px solid var(--bdr);
+  background:linear-gradient(135deg,rgba(216,165,42,.1) 0%,transparent 100%)}
+.sb-logo{font-family:'Cinzel Decorative',serif;color:var(--gold-l);font-size:13px;letter-spacing:1px}
+.sb-sub{font-family:'Noto Serif Devanagari',serif;color:var(--cream-s);font-size:17px;margin-top:3px;font-weight:600}
+.sb-by{font-size:11px;color:var(--cream-d);margin-top:4px;font-style:italic}
+.sb-list{flex:1;overflow-y:auto;padding:4px 0 20px}
+.sb-list::-webkit-scrollbar{width:3px}
+.sb-list::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:2px}
+
+/* ── MOBILE HEADER ── */
+.mob-hdr{display:none;position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:calc(var(--st) + 8px) 14px 10px;
+  align-items:center;gap:10px;
+  background:linear-gradient(135deg,#06091F 0%,#080D26 100%);
+  border-bottom:1px solid var(--bdr)}
+.mob-title{flex:1;text-align:center}
+.mob-title-logo{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold-l)}
+.mob-title-sub{font-family:'Noto Serif Devanagari',serif;font-size:13px;color:var(--cream-s);margin-top:1px}
+.mob-icon-btn{width:42px;height:42px;border-radius:10px;border:1px solid var(--bdr);
+  background:rgba(216,165,42,.06);color:var(--gold);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+  -webkit-tap-highlight-color:transparent}
+.mob-icon-btn:active{background:rgba(216,165,42,.15)}
+
+/* ── MOBILE DRAWER ── */
+.drawer-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;
+  opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer-bg.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:87%;max-width:330px;
+  background:linear-gradient(180deg,#060920 0%,#080D26 100%);
+  border-right:1px solid var(--bdr);
+  transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+  z-index:201;display:flex;flex-direction:column;padding-top:var(--st)}
+.drawer.open{transform:translateX(0)}
+.drawer-hdr{display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px;border-bottom:1px solid var(--bdr)}
+.drawer-hdr-title{font-family:'Cinzel Decorative',serif;color:var(--gold-l);font-size:13px}
+.drawer-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--bdr);
+  background:transparent;color:var(--cream-d);cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center}
+.drawer-list{flex:1;overflow-y:auto;padding:4px 0 20px;-webkit-overflow-scrolling:touch}
+
+/* Shared list styles */
+.canto-row{display:flex;align-items:center;gap:8px;padding:11px 16px 3px;
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase}
+.canto-line{flex:1;height:1px;background:var(--bdr)}
+.canto-mean{padding:0 16px 4px;font-size:10px;color:var(--saffron-d);font-style:italic}
+.inv-btn{display:flex;gap:10px;width:100%;padding:12px 16px;background:transparent;border:none;cursor:pointer;
+  text-align:left;transition:background .15s;border-left:3px solid transparent;align-items:flex-start}
+.inv-btn:active,.inv-btn:hover{background:rgba(216,165,42,.07)}
+.inv-btn.active{background:rgba(216,165,42,.12);border-left-color:var(--gold)}
+.inv-icon{font-family:'Noto Serif Devanagari',serif;font-size:17px;color:var(--gold);padding-top:1px}
+.inv-label{font-size:14px;color:var(--cream-s);line-height:1.3}
+.inv-btn.active .inv-label{color:var(--cream)}
+.inv-sub{font-size:10px;color:var(--saffron-d);font-style:italic;margin-top:1px}
+.song-btn{display:flex;align-items:flex-start;gap:10px;width:100%;padding:10px 16px;
+  background:transparent;border:none;cursor:pointer;text-align:left;
+  transition:background .15s;border-left:3px solid transparent}
+.song-btn:active,.song-btn:hover{background:rgba(216,165,42,.07);border-left-color:var(--gold-d)}
+.song-btn.active{background:rgba(216,165,42,.12);border-left-color:var(--gold)}
+.sn{font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d);min-width:22px;padding-top:2px}
+.song-btn.active .sn{color:var(--gold-l)}
+.st{font-size:14px;color:var(--cream-s);line-height:1.3}
+.song-btn.active .st{color:var(--cream)}
+.ss{font-size:10px;color:var(--cream-d);opacity:.7;font-style:italic;margin-top:1px}
+
+/* ── MAIN ── */
+.main{flex:1;overflow-y:auto;position:relative;z-index:5;
+  -webkit-overflow-scrolling:touch}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:2px}
+
+/* Hero */
+.hero{background:linear-gradient(155deg,#0C1234 0%,#06081A 65%);
+  border-bottom:1px solid var(--bdr);padding:20px 18px 18px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 0% 0%,rgba(216,165,42,.1) 0%,transparent 58%),
+             radial-gradient(ellipse at 100% 100%,rgba(232,105,154,.07) 0%,transparent 58%);pointer-events:none}
+.h-canto{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.h-canto::before,.h-canto::after{content:'';height:1px;width:18px;background:var(--gold-d);flex-shrink:0}
+.h-num{font-family:'Cinzel Decorative',serif;font-size:10px;color:var(--cream-d);margin-bottom:3px}
+.h-title{font-family:'Cinzel Decorative',serif;font-size:19px;color:var(--gold-l);line-height:1.2;
+  margin-bottom:3px;text-shadow:0 0 30px rgba(216,165,42,.35)}
+.h-alt{font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--cream-s);margin-bottom:8px}
+.h-meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.h-tlabel{color:var(--gold-d);font-size:9px;text-transform:uppercase;letter-spacing:1px;font-family:'Cinzel',serif}
+.h-tval{color:var(--cream-s);font-size:12px}
+.h-div{width:1px;align-self:stretch;background:var(--bdr)}
+
+/* Tabs */
+.tabs{display:flex;border-bottom:1px solid var(--bdr);background:var(--surf);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:12px 14px;background:transparent;border:none;cursor:pointer;
+  font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--cream-d);
+  text-transform:uppercase;border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:all .2s;white-space:nowrap;flex-shrink:0}
+.tab:active,.tab:hover{color:var(--cream)}
+.tab.active{color:var(--gold-l);border-bottom-color:var(--gold)}
+
+/* Content blocks */
+.content{padding:20px 18px}
+.blk{margin-bottom:20px}
+.blk-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.blk-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.blk-line{flex:1;height:1px;background:var(--bdr)}
+.dev{font-family:'Noto Serif Devanagari',serif;font-size:20px;font-weight:500;line-height:2.0;
+  color:var(--cream);background:linear-gradient(135deg,rgba(216,165,42,.07) 0%,rgba(232,105,154,.04) 100%);
+  border:1px solid var(--bdr);border-left:3px solid var(--gold);padding:18px 16px;border-radius:3px;
+  text-align:center;white-space:pre-line}
+.hi-t{font-family:'Noto Serif Devanagari',serif;font-size:18px;font-weight:400;line-height:2.0;
+  color:#EDD898;background:rgba(240,147,74,.07);border:1px solid rgba(240,147,74,.25);
+  border-left:3px solid var(--saffron);padding:16px;border-radius:3px;text-align:center;white-space:pre-line}
+.rom{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;font-weight:500;line-height:1.9;
+  color:var(--teal);background:rgba(79,211,236,.06);border:1px solid rgba(79,211,236,.22);
+  border-left:3px solid var(--teal);padding:16px;border-radius:3px;text-align:center;white-space:pre-line}
+.en-m{font-family:'EB Garamond',serif;font-size:17px;font-weight:500;line-height:1.8;color:var(--cream);
+  background:rgba(232,105,154,.06);border:1px solid rgba(232,105,154,.22);border-left:3px solid var(--lotus);padding:16px;border-radius:3px}
+.ctx-blk{font-family:'EB Garamond',serif;font-size:16px;line-height:1.85;color:var(--cream-s);
+  background:linear-gradient(135deg,rgba(216,165,42,.06) 0%,rgba(232,105,154,.03) 100%);
+  border:1px solid var(--bdr);border-radius:3px;padding:18px 16px}
+.ctx-rule{width:48px;height:1px;background:var(--gold-d);margin:14px 0}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:100px;font-size:12px;margin:2px}
+.c-mood{background:rgba(232,105,154,.12);border:1px solid rgba(232,105,154,.3);color:var(--lotus)}
+.c-raga{background:rgba(79,211,236,.1);border:1px solid rgba(79,211,236,.28);color:var(--teal)}
+.c-spkr{background:rgba(240,147,74,.1);border:1px solid rgba(240,147,74,.28);color:var(--saffron)}
+.lotus-div{text-align:center;color:var(--gold-d);font-size:14px;margin:16px 0;letter-spacing:6px;opacity:.5}
+.sec-hd{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);
+  text-transform:uppercase;margin:20px 0 12px;display:flex;align-items:center;gap:12px}
+.sec-hd::after{content:'';flex:1;height:1px;background:var(--bdr)}
+
+/* Desktop nav row */
+.nav-row{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 46px;border-top:1px solid var(--bdr);background:var(--surf)}
+.nav-btn{background:transparent;border:1px solid var(--bdr);border-radius:3px;padding:9px 18px;
+  cursor:pointer;transition:all .2s;font-family:'Cinzel',serif;font-size:10.5px;
+  letter-spacing:1px;color:var(--cream-s);text-transform:uppercase}
+.nav-btn:hover{border-color:var(--gold-d);color:var(--cream);background:rgba(216,165,42,.06)}
+.nav-btn:disabled{opacity:.3;cursor:default}
+.nav-pos{font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d);letter-spacing:1px}
+
+/* Mobile bottom nav */
+.bot-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;
+  padding:10px 14px calc(var(--sb) + 10px);
+  background:var(--surf);border-top:1px solid var(--bdr);
+  align-items:center;justify-content:space-between}
+.bot-btn{background:transparent;border:1px solid var(--bdr);border-radius:8px;
+  padding:9px 16px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;
+  color:var(--cream-s);cursor:pointer;text-transform:uppercase;min-width:76px;text-align:center}
+.bot-btn:active{background:rgba(216,165,42,.1)}
+.bot-btn:disabled{opacity:.3}
+.bot-pos{font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d);letter-spacing:1px;text-align:center}
+
+/* Play button */
+.play-btn{display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;border:1.5px solid var(--gold-d);
+  background:rgba(216,165,42,.08);color:var(--gold);cursor:pointer;
+  font-size:11px;transition:all .22s;flex-shrink:0;padding:0;
+  -webkit-tap-highlight-color:transparent}
+.play-btn:active,.play-btn:hover{background:rgba(216,165,42,.2);border-color:var(--gold);color:var(--gold-l)}
+.play-btn.on{background:rgba(79,211,236,.15);border-color:var(--teal);color:var(--teal);
+  box-shadow:0 0 16px rgba(79,211,236,.4);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 10px rgba(79,211,236,.35)}50%{box-shadow:0 0 22px rgba(79,211,236,.7)}}
+
+/* Install banners */
+.install-bar{position:fixed;z-index:500;left:12px;right:12px;
+  background:var(--surf2);border:1px solid var(--gold-d);border-radius:14px;
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 40px rgba(0,0,0,.6);animation:slideUp .35s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.ib-icon{font-size:28px;flex-shrink:0}
+.ib-body{flex:1}
+.ib-title{font-family:'Cinzel',serif;font-size:11px;color:var(--gold-l);letter-spacing:.5px;margin-bottom:3px}
+.ib-sub{font-size:12.5px;color:var(--cream-d);line-height:1.45}
+.ib-sub b{color:var(--cream)}
+.ib-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.ib-install{background:var(--gold);color:var(--bg);border:none;border-radius:8px;
+  padding:8px 18px;font-family:'Cinzel',serif;font-size:11px;cursor:pointer;font-weight:700}
+.ib-dismiss{background:transparent;border:1px solid var(--bdr);border-radius:8px;
+  color:var(--cream-d);padding:7px 14px;font-size:11px;cursor:pointer}
+
+/* ── DESKTOP OVERRIDES ── */
+@media(min-width:768px){
+  .mob-hdr{display:none!important}
+  .drawer-bg,.drawer{display:none!important}
+  .bot-nav{display:none!important}
+  .sb{display:flex}
+  .main{height:100vh;margin:0}
+  .hero{padding:34px 46px 28px}
+  .h-title{font-size:26px}
+  .h-alt{font-size:15.5px}
+  .content{padding:32px 46px}
+  .dev{font-size:24px;padding:24px 28px}
+  .hi-t{font-size:22px;padding:22px 28px}
+  .rom{font-size:17.5px;padding:20px 28px}
+  .en-m{font-size:19px;padding:22px 28px}
+  .ctx-blk{font-size:18px;padding:26px 28px}
+  .pf{width:230px}
+  .install-bar{bottom:24px;left:300px;right:24px}
+}
+
+/* ── MOBILE OVERRIDES ── */
+@media(max-width:767px){
+  .sb{display:none}
+  .mob-hdr{display:flex}
+  .bot-nav{display:flex}
+  .main{margin-top:calc(var(--st) + 62px);margin-bottom:calc(var(--sb) + 56px)}
+  .nav-row{display:none}
+  .install-bar{bottom:calc(var(--sb) + 66px)}
+  .pf{display:none}
+}
+</style>
+</head>
+<body>
+<div id="root"><div id="splash"><div class="sp-om">ॐ</div><div class="sp-txt">Gīta Govinda</div></div></div>
+<script type="module">
+import{h,render,Fragment}from'https://esm.sh/preact@10';
+import{useState,useRef,useEffect,useCallback}from'https://esm.sh/preact@10/hooks';
+import htm from'https://esm.sh/htm@3';
+const html=htm.bind(h);
+
+/* ── CONFIG ── */
+const BASE='https://cdn.jsdelivr.net/gh/vigneshbhaskarraj/ashtapathi@main/audio';
+const au=(id,t)=>`${BASE}/gg_${id}_${t}.wav`;
+
+/* ── DATA ── */
+const INV={id:'00',isInv:true,
+ dev:`मेघैर्मेदुरमम्बरं वनभुवः श्यामास्तमालद्रुमैः\nनक्तं भीरुरयं त्वमेव तदिमं राधे गृहं प्रापय ।\nइत्थं नन्दनिदेशतश्चलितयोः प्रत्यध्वकुञ्जद्रुमं\nराधामाधवयोर्जयन्ति यमुनाकूले रहःकेलयः ॥`,
+ hi_t:`मेघैः मेदुरम् अम्बरम् · वन-भुवः श्यामाः तमाल-द्रुमैः\nनक्तम् भीरुः अयम् · त्वम् एव तत् इमम् राधे गृहम् प्रापय ।\nइत्थम् नन्द-निदेशतः · चलितयोः प्रति-अध्व-कुञ्ज-द्रुमम्\nराधा-माधवयोः जयन्ति · यमुना-कूले रहः-केलयः ॥`,
+ translit:`meghair meduram ambaraṃ vana-bhuvaḥ śyāmās tamāla-drumaiḥ\nnaktaṃ bhīrur ayaṃ tvam eva tad imaṃ rādhe gṛhaṃ prāpaya\nitthaṃ nanda-nideśataś calitayoḥ praty-adhva-kuñja-drumaṃ\nrādhā-mādhavayor jayanti yamunā-kūle rahaḥ-kelayaḥ`,
+ en:`The sky grows heavy with clouds; the woodlands darken with tamala trees. He is afraid of the night — O Radha, take him home, so Nanda instructs. As the two set off together, straying tree to tree through the bowers, the secret love-play of Radha and Madhava on the banks of the Yamuna triumphs for ever.`,
+ ctx:`This is the maṅgalācaraṇa — the benedictory opening verse placed BEFORE the first Ashtapadi. In a single stroke it sets the whole poem in motion: Nanda's simple worldly instruction becomes the occasion for divine union. The dark Tamala forest mirrors Krishna's own complexion; nature becomes complicit in the love of Radha and Madhava.`};
+
+const CANTOS={
+ 1:{n:'Sāmoda Dāmodara',m:'Exuberant Krishna'},2:{n:'Akleśa Keśava',m:'Carefree Krishna'},
+ 3:{n:'Mugdha Madhusūdana',m:'Bewildered Krishna'},4:{n:'Snigdha Madhusūdana',m:'Tender Krishna'},
+ 5:{n:'Sākāṅkṣa Puṇḍarīkākṣa',m:'Longing Lotus-Eyed Krishna'},6:{n:'Dhṛṣṭa Vaikuṇṭha',m:'Bold Krishna'},
+ 7:{n:'Nāgara Nārāyaṇa',m:'Urbane Krishna'},8:{n:'Vilakṣya Lakṣmīpati',m:'Abashed Lord of Lakshmi'},
+ 9:{n:'Mugdha Mukunda',m:'Languishing Krishna'},10:{n:'Catura Caturbhuja',m:'Skilful Four-Armed Krishna'},
+ 11:{n:'Sānanda Dāmodara',m:'Joyful Krishna'},12:{n:'Suprīta Pītāmbara',m:'Contented Krishna in Yellow Silk'}};
+
+const S=(n,c,title,alt,spkr,raga,dev,hi_t,translit,en,ctx)=>({n,c,title,alt,spkr,raga,dev,hi_t,translit,en,ctx});
+const SONGS=[
+S(1,1,'Pralaya Payodhi Jale','Daśāvatāra Stuti · Jaya Jagadīśa Hare','Jayadeva','Mohanam / varies',
+`प्रलयपयोधिजले धृतवानसि वेदम् ।\nकेशव ! धृतमीनशरीर\nजय जगदीश हरे ॥`,
+`प्रलय-पयोधि-जले धृत-वान् असि वेदम् ।\nकेशव ! धृत-मीन-शरीर\nजय जगदीश हरे ॥`,
+`pralaya-payodhi-jale dhṛtavān asi vedam\nkeśava dhṛta-mīna-śarīra\njaya jagadīśa hare`,
+`In the waters of cosmic dissolution you upheld the Vedas, effortlessly playing the part of a boat. O Keshava who took the body of a fish — victory to you, O Lord of the Universe, Hari! Opening verse of the Dashavatara hymn praising Vishnu's ten incarnations.`,
+`The Dashavatara Stotra spans eight couplets, each praising one of Vishnu's avatars with a single precise metaphor — from fish to tortoise to boar to Narasimha. Performed as a standalone piece across Carnatic, Odissi and Sopana traditions, it remains one of the most celebrated texts in Indian sacred music.`),
+
+S(2,1,'Śrita Kamalā Kuca Maṇḍala','Jaya Jaya Deva Hare','Jayadeva','Varies by tradition',
+`श्रितकमलाकुचमण्डल धृतकुण्डल ।\nजय जय देव हरे ॥`,
+`श्रित-कमला-कुच-मण्डल धृत-कुण्डल ।\nजय जय देव हरे ॥`,
+`śrita-kamalā-kuca-maṇḍala dhṛta-kuṇḍala\njaya jaya deva hare`,
+`O you who rest upon Lakshmi's breast, wearing glittering earrings and a forest garland — victory, victory to you, O divine Hari! This second hymn closes the invocatory praise before the narrative of Radha and Krishna's love begins.`,
+`The refrain 'jaya jaya deva hare' makes this one of the most universally sung devotional pieces of the entire text, especially in temple worship. It completes the Dashavatara sequence and transitions the poem from cosmic praise to intimate love.`),
+
+S(3,2,'Lalita Lavaṅga Latā','Viharati Harir iha Sarasa-vasante','Sakhi to Radha','Vasanta / Hindola',
+`ललितलवङ्गलतापरिशीलनकोमलमलयसमीरे\nविहरति हरिरिह सरसवसन्ते ।\nनृत्यति युवतिजनेन समं सखि विरहिजनस्य दुरन्ते ॥`,
+`ललित-लवङ्ग-लता-परिशीलन-कोमल-मलय-समीरे ।\nविहरति हरिः इह सरस-वसन्ते ।\nनृत्यति युवति-जनेन समम् सखि ! विरहि-जनस्य दुरन्ते ॥`,
+`lalita-lavaṅga-latā-pariśīlana-komala-malaya-samīre\nviharati harir iha sarasa-vasante\nnṛtyati yuvati-janena samaṃ sakhi virahi-janasya durante`,
+`A soft Malaya breeze caresses tender clove vines; the forest bowers hum with bees and ring with the cuckoo's cry. Here Hari plays in the lush springtime, friend — dancing with the young women, while for the one parted from him this spring is anguish without end.`,
+`The crown jewel of the Gita Govinda. The cascade of soft 'L' sounds in the opening line is celebrated as one of the supreme achievements in Sanskrit poetry. It holds spring's intoxicating beauty and Radha's separation-pain in perfect tension — a signature piece of every great Carnatic vocalist and Odissi dancer.`),
+
+S(4,2,'Candana Carcita','Harir iha Mugdha-vadhū-nikare','Sakhi to Radha','Kambhoji / varies',
+`चन्दनचर्चितनीलकलेवरपीतवसनवनमाली\nहरिरिह मुग्धवधूनिकरे विलासिनि विलसति केलिपरे ॥`,
+`चन्दन-चर्चित-नील-कलेवर-पीत-वसन-वनमाली ।\nहरिः इह मुग्ध-वधू-निकरे विलासिनि ! विलसति केलि-परे ॥`,
+`candana-carcita-nīla-kalevara-pīta-vasana-vanamālī\nharir iha mugdha-vadhū-nikare vilāsini vilasati keli-pare`,
+`His dark body anointed with sandal paste, clothed in yellow silk, garlanded with wildflowers; cheeks lit by swaying jewelled earrings, his smile radiant — here Hari sports among the enchanted cowherd women, lost in love-play, O lovely one.`,
+`Krishna in his most radiant form — the Venugopal iconography of yellow silk and sandal paste — seen through Radha's longing eyes. In Vaishnavism the gopis represent pure souls whose yearning for Krishna mirrors the soul's longing for the divine.`),
+
+S(5,3,'Sañcarad Adhara Sudhā','Rāse Harim iha','Radha (recalling)','Varies by tradition',
+`सञ्चरदधरसुधामधुरध्वनिमुखरितमोहनवंशम्\nरासे हरिमिह विहितविलासं स्मरति मनो मम कृतपरिहासम् ॥`,
+`सञ्चरत्-अधर-सुधा-मधुर-ध्वनि-मुखरित-मोहन-वंशम् ।\nरासे हरिम् इह विहित-विलासम् · स्मरति मनः मम कृत-परिहासम् ॥`,
+`sañcarad-adhara-sudhā-madhura-dhvani-mukharita-mohana-vaṃśam\nrāse harim iha vihita-vilāsaṃ smarati mano mama kṛta-parihāsam`,
+`His enchanting flute murmurs sweet as nectar at his moving lips; restless glances, swaying crest, trembling earrings at his cheeks. My heart remembers Hari at his playful sport in the rasa dance — the Hari who once teased me there.`,
+`Canto 3 turns inward. Now Radha burns in separation while Krishna sports freely. Memory becomes torment. This marks the shift from outward description to the interior life of viraha — which Vaishnava thought treats as the most purifying devotional state.`),
+
+S(6,4,'Sakhi He Keśi-mathanam Udāram','Nibhṛta Nikuñja','Radha to Sakhi','Varies by tradition',
+`सखि हे केशिमथनमुदारम्\nरमय मया सह मदनमनोरथभावितया सविकारम् ॥`,
+`सखि ! हे केशि-मथनम् उदारम् ।\nरमय मया सह मदन-मनोरथ-भावितया स-विकारम् ॥`,
+`sakhi he keśi-mathanam udāram\nramaya mayā saha madana-manoratha-bhāvitayā sa-vikāram`,
+`O friend — bring the generous slayer of Keshi to make love with me, trembling and stirred as I am with longing's desire. Radha confides her deepest yearning to her trusted sakhi.`,
+`The sakhi — the trusted friend-confidante — becomes the indispensable mediator between Radha and Krishna. In devotional reading she represents the guru who knows both the soul and the divine and facilitates their union.`),
+
+S(7,4,'Māmiyaṃ Calitā Vilokya','Hari Hari','Krishna (lamenting)','Varies by tradition',
+`मामियं चलिता विलोक्य वृतं वधूनिचयेन\nहरि हरि हतादरतया गता सा कुपितेव ॥`,
+`माम् इयम् चलिता विलोक्य वृतम् वधू-निचयेन ।\nहरि हरि ! हत-आदरतया गता सा कुपिता इव ॥`,
+`māmiyaṃ calitā vilokya vṛtaṃ vadhū-nicayena\nhari hari hatādaratayā gatā sā kupiteva`,
+`Seeing me encircled by the throng of cowherd women, she — alas, alas! — feeling slighted, turned and went away as though in anger. Krishna laments Radha's wounded departure.`,
+`A rare moment of Krishna's own remorse. The doubled cry 'hari hari' reveals that the divine too is wounded by love — not a distant unmoved absolute, but a longing beloved who suffers from the pain he has caused.`),
+
+S(8,5,'Nindati Candanam','Sā Virahe Tava Dīnā','Sakhi to Krishna','Varies by tradition',
+`निन्दति चन्दनमिन्दुकिरणमनुविन्दति खेदम्\nसा विरहे तव दीना\nमाधव मनसिजविशिखभयादिव भावनया त्वयि लीना ॥`,
+`निन्दति चन्दनम् इन्दु-किरणम् अनु-विन्दति खेदम् ।\nसा विरहे तव दीना ।\nमाधव ! मनसिज-विशिख-भयात् इव भावनया त्वयि लीना ॥`,
+`nindati candanam indu-kiraṇam anuvindati khedam\nsā virahe tava dīnā\nmādhava manasija-viśikha-bhayād iva bhāvanayā tvayi līnā`,
+`She reviles the sandal paste, finds only torment in the moon's rays; the Malaya breeze feels like venom from a serpent's den. In separation from you she is wretched, Madhava — as if fearing love's arrows, she has dissolved into you in every thought.`,
+`The great paradox of viraha: everything ordinarily cooling — moonlight, sandal, breeze — turns to fire for the separated lover. The senses become supersensitised, perceiving the divine even in its absence.`),
+
+S(9,5,'Stana-vinihitam api Hāram','Rādhikā Tava Virahe','Sakhi to Krishna','Varies by tradition',
+`स्तनविनिहितमपि हारमुदारं\nसा मनुते कृशतनुरिव भारम् ॥`,
+`स्तन-विनिहितम् अपि हारम् उदारम् ।\nसा मनुते कृश-तनुः इव भारम् ॥`,
+`stana-vinihitam api hāram udāraṃ\nsā manute kṛśa-tanur iva bhāram`,
+`Frail-bodied, she feels even a delicate necklace laid upon her breast as an unbearable weight; sandal paste seems poison, cool breezes seem flame. So worn has she grown in separation from you, Keshava.`,
+`The sakhi catalogues Radha's physical wasting — the classic depiction of the paramabhakta whose body fails under the weight of longing. In the Bhagavata Purana tradition this is the highest symptom of divine love.`),
+
+S(10,6,'Vahati Malaya-samīre','Tava Virahe Vanamālī','Sakhi to Krishna','Varies by tradition',
+`वहति मलयसमीरे मदनमुपनिधाय\nस्फुटति कुसुमनिकरे विरहिहृदयदलनाय ॥`,
+`वहति मलय-समीरे मदनम् उप-निधाय ।\nस्फुटति कुसुम-निकरे विरहि-हृदय-दलनाय ॥`,
+`vahati malaya-samīre madanam upanidhāya\nsphuṭati kusuma-nikare virahi-hṛdaya-dalanāya`,
+`As the Malaya breeze blows it carries Madana's fire with it; the blossoms burst open as if to split the heart of the separated lover. She lies sleepless, only your name on her lips — come to her, O Vanamali.`,
+`Canto 6 holds only this one song. Spring's beauty has become an instrument of torture for Radha; every natural loveliness intensifies her pain. The sakhi's plea to Krishna grows urgent: only his arrival can restore her.`),
+
+S(11,7,'Rati-sukha-sāre / Dhīra Samīre','Yamunā Tīre','Sakhi to Radha','Kedaragowla / Pahadi',
+`धीरसमीरे यमुनातीरे वसति वने वनमाली ।\nरतिसुखसारे गतमभिसारे ॥`,
+`धीर-समीरे यमुना-तीरे वसति वने वनमाली ।\nरति-सुख-सारे गतम् अभि-सारे ॥`,
+`dhīra-samīre yamunā-tīre vasati vane vanamālī\nrati-sukha-sāre gatam abhisāre`,
+`By the gentle Yamuna in the steady breeze, the forest-garlanded one waits in the grove. Go to the tryst, where the very essence of love's joy awaits — the sakhi urges Radha onward toward Krishna.`,
+`The prelude verse 'dhīra-samīre yamunā-tīre' is one of the most recognised openings in all Indian classical music. The Yamuna riverbank becomes the eternal, timeless setting of divine love-play.`),
+
+S(12,7,'Paśyati Diśi Diśi','Nātha Hare Sīdati Rādhā','Sakhi to Krishna','Sankarabharanam',
+`पश्यति दिशि दिशि रहसि भवन्तम्\nनाथ हरे सीदति राधा वासगृहे ॥`,
+`पश्यति दिशि दिशि रहसि भवन्तम् ।\nनाथ ! हरे ! सीदति राधा वास-गृहे ॥`,
+`paśyati diśi diśi rahasi bhavantam\nnātha hare sīdati rādhā vāsa-gṛhe`,
+`She looks for you in every direction, secretly, longingly; her whole being absorbed in the waves of your virtues. O Master Hari, Radha languishes in the bower — every sight and every word has become only you.`,
+`Radha's gaze becomes a form of meditation — every direction holds the possibility of Krishna's presence. Her world has narrowed to him alone, echoing the bhakti ideal: love is when the beloved becomes the only thought, the only sight.`),
+
+S(13,7,'Kathita-samaye\'pi','Yāmi He Kam iha Śaraṇam','Radha (despairing)','Ahiri',
+`कथितसमयेऽपि हरिरहह न ययौ वनम्\nयामि हे कमिह शरणं सखीजनवचनवञ्चिता ॥`,
+`कथित-समये अपि हरिः अहह ! न ययौ वनम् ।\nयामि हे ! कम् इह शरणम् सखी-जन-वचन-वञ्चिता ॥`,
+`kathita-samaye'pi harir ahaha na yayau vanam\nyāmi he kam iha śaraṇaṃ sakhī-jana-vacana-vañcitā`,
+`Even at the appointed hour — alas, alas! — Hari did not come to the grove. Deceived by my friends' assurances, where now shall I go for refuge? Radha despairs when Krishna fails to appear at the tryst.`,
+`The agony of the failed tryst. Canto 7 is the longest (four songs) and traces Radha through hope, betrayal, despair and jealousy — the full emotional range of the heroine before the great turn toward reunion.`),
+
+S(14,7,'Smara-samarocita','Kāpi Madhu-ripuṇā','Radha imagining','Saranga',
+`स्मरसमरोचितविरचितवेशा\nहरिमेकरसं चिरमभिलषितविलासम् ॥`,
+`स्मर-समर-उचित-विरचित-वेशा ।\nहरिम् एक-रसम् चिरम् अभिलषित-विलासम् ॥`,
+`smara-samarocita-viracita-veśā\nharim eka-rasaṃ ciram abhilaṣita-vilāsam`,
+`Dressed for the battle of love, some fortunate woman is enjoying with Hari the long-desired love-play. So Radha torments herself, imagining Krishna with a rival as she waits in vain and alone.`,
+`The fevered imagination of the jealous lover. Jayadeva holds nothing back in depicting the full human reality of love's darkness before the light of reconciliation.`),
+
+S(15,8,'Samudita Madane','Ramaṇī Vadane','Radha rebuking Krishna','Saveri',
+`समुदितमदने रमणीवदने चुम्बनवलिताधरे\nरमते यमुनापुलिनवने विजयी मुरारिरधुना ॥`,
+`समुदित-मदने रमणी-वदने चुम्बन-वलित-अधरे ।\nरमते यमुना-पुलिन-वने विजयी मुरारिः अधुना ॥`,
+`samudita-madane ramaṇī-vadane cumbana-valitādhare\nramate yamunā-pulina-vane vijayī murārir adhunā`,
+`At dawn Radha sees on Krishna the marks of a night spent with another — kohl-smudged, garland-crushed. With wounded dignity she rebukes him: the conqueror Murari now roams the Yamuna groves, she says bitterly.`,
+`Canto 8 (Vilakshya Lakshmipati — the abashed Lord) holds one song. Krishna arrives at last but bearing traces of another tryst. Radha's mana — sacred wounded pride — is love expressing its highest, most self-aware form.`),
+
+S(16,9,'Anila-tarala','Sakhi Yā Ramitā Vanamālinā','Sakhi to Radha','Punnagavarali',
+`अनिलतरलकुवलयनयनेन\nसखि या रमिता वनमालिना ॥`,
+`अनिल-तरल-कुवलय-नयनेन ।\nसखि ! या रमिता वनमालिना ॥`,
+`anila-tarala-kuvalaya-nayanena\nsakhi yā ramitā vanamālinā`,
+`O friend with eyes trembling like lotuses in the breeze — set aside your pride. She who is loved by the forest-garlanded one is truly blessed; do not waste this precious love on anger.`,
+`Canto 9 holds one song. The sakhi shifts from messenger to counsellor — the guru's gentle insistence: do not let pride delay the union of the soul with the divine.`),
+
+S(17,10,'Rajani-janita-guru-jāgara','Yāhi Mādhava Yāhi Keśava','Radha (mana)','Arabhi',
+`रजनिजनितगुरुजागररागकषायितमलसनिमेषम्\nयाहि माधव याहि केशव मा वद कैतववादम् ॥`,
+`रजनि-जनित-गुरु-जागर-राग-कषायित-मलस-निमेषम् ।\nयाहि माधव ! याहि केशव ! मा वद कैतव-वादम् ॥`,
+`rajani-janita-guru-jāgara-rāga-kaṣāyita-malasa-nimeṣam\nyāhi mādhava yāhi keśava mā vada kaitava-vādam`,
+`Your eyes heavy and reddened from a night of wakeful passion — Go, Madhava, go! Go, Keshava! Do not speak your deceitful sweet words to me now. Radha sends Krishna away in proud, wounded reproach.`,
+`The famous 'yāhi mādhava' — Radha at her most powerful, refusing Krishna. This is mana at its peak: not rejection but love's most vulnerable and self-aware expression. The insistent rhythm forms the cornerstone of Odissi abhinaya.`),
+
+S(18,10,'Harir Abhisarati','Vahati Mṛdu Pavane','Sakhi to Radha','Yadukulakamboji',
+`हरिरभिसरति वहति मृदुपवने\nमाधवे मा कुरु मानिनि मानमये ॥`,
+`हरिः अभिसरति वहति मृदु-पवने ।\nमाधवे ! मा कुरु मानिनि ! मानम् अये ॥`,
+`harir abhisarati vahati mṛdu-pavane\nmādhave mā kuru mānini mānam aye`,
+`Hari himself is coming to you through the soft night breeze — set aside your anger now, proud one. He who melts at your very quarrel has come to your door. The sakhi urges Radha: grace is at hand.`,
+`The sakhi's role rises to that of the wise guru: divine grace is present, do not let pride delay the moment. The gentle breeze itself carries Krishna's approach, turning all of nature into a messenger of reunion.`),
+
+S(19,10,'Vadasi Yadi Kiñcidapi','Priye Cāruśīle Muñca Mānam','Krishna pleading','Mukhari',
+`वदसि यदि किञ्चिदपि दन्तरुचिकौमुदी हरति दरतिमिरमतिघोरम्\nप्रिये चारुशीले मुञ्च मयि मानमनिदानम् ॥`,
+`वदसि यदि किञ्चित् अपि दन्त-रुचि-कौमुदी हरति दर-तिमिरम् अति-घोरम् ।\nप्रिये ! चारु-शीले ! मुञ्च मयि मानम् अनिदानम् ॥`,
+`vadasi yadi kiñcid api danta-ruci-kaumudī harati dara-timiram ati-ghoram\npriye cāru-śīle muñca mayi mānam anidānam`,
+`If you would say even a single word, the moonlight of your teeth would scatter the terrible darkness of my dread. O beloved, O lovely-natured one — set aside this groundless anger; love's fire consumes me, grant me the nectar of your lotus face.`,
+`A watershed: Krishna takes the posture of a pleading devotee. This song contains the verse Jayadeva hesitated to write — Krishna asking Radha to place her feet upon his head. Chaitanya Mahaprabhu wept at this Ashtapadi, seeing Radha's position as the highest spiritual ideal ever conceived.`),
+
+S(20,11,'Viracita-cāṭu-vacana','Mugdhe Madhu-mathana','Sakhi to Radha','Varies by tradition',
+`विरचितचाटुवचनरचनं चरणे रचितप्रणिपातम्\nमुग्धे मधुसूदनमनु ॥`,
+`विरचित-चाटु-वचन-रचनम् चरणे रचित-प्रणिपातम् ।\nमुग्धे ! मधु-सूदनम् अनु ॥`,
+`viracita-cāṭu-vacana-racanaṃ caraṇe racita-praṇipātam\nmugdhe madhusūdanam anu`,
+`He has woven sweet words of entreaty; he has bowed at your very feet. O innocent one — why do you still resist the slayer of Madhu? Go to him now.`,
+`Canto 11 (Sananda Damodara) begins the movement toward union. The reversal is complete: the Lord of all worlds bows at the devotee's feet. This image of Hari humbled before Radha became central to Bengal Vaishnavism.`),
+
+S(21,11,'Praviśa Rādhe','Mañjutara Kuñja-tala','Sakhi ushering Radha','Varies by tradition',
+`प्रविश राधे माधवसमीपमिह\nमञ्जुतरकुञ्जतलकेलिसदने ॥`,
+`प्रविश राधे ! माधव-समीपम् इह ।\nमञ्जुतर-कुञ्ज-तल-केलि-सदने ॥`,
+`praviśa rādhe mādhava-samīpam iha\nmañjutara-kuñja-tala-keli-sadane`,
+`Enter now, Radha, into Madhava's presence — into the lovely bower-chamber set for love beneath the trees. The sakhi leads Radha to the waiting Krishna; the long-deferred union is at hand.`,
+`The sakhi ushers Radha into the bower. In devotional reading this is the soul finally led to the threshold of union with the divine — pride dissolved, the long separation ending.`),
+
+S(22,12,'Rādhā-vadana-vilokana','Harim Eka-rasam','Poet / narrator','Varies by tradition',
+`राधावदनविलोकनविकसितविविधविकारविभङ्गम्\nहरिमेकरसम् ॥`,
+`राधा-वदन-विलोकन-विकसित-विविध-विकार-विभङ्गम् ।\nहरिम् एक-रसम् ॥`,
+`rādhā-vadana-vilokana-vikasita-vividha-vikāra-vibhaṅgam\nharim eka-rasam`,
+`Gazing upon Radha's face, every play of feeling blossoming across it in the moonlight, Hari is overcome — the two at last united, each lost wholly in the other.`,
+`Canto 12 (Suprita Pitambara) celebrates the union. The reunion is described with reverence and delicacy — the bliss of sanyoga after the long fire of separation. Radha's face becomes Krishna's entire universe.`),
+
+S(23,12,'Kisalaya-śayana-tale','Kṣaṇam Adhunā','Krishna to Radha','Varies by tradition',
+`किसलय शयन तले\nकुरु कामिनि चरण नलिन विनिवेशम् ॥`,
+`किसलय-शयन-तले ।\nकुरु कामिनि ! चरण-नलिन-विनिवेशम् ॥`,
+`kisalaya-śayana-tale\nkuru kāmini caraṇa-nalina-niveśam`,
+`Upon this couch of tender leaves, O loving one, set your lotus feet; let your wandering steps find their rest here with me. Krishna welcomes Radha into intimate and tender union.`,
+`Tenderness after union. The imagery of the leaf-couch and lotus feet turns physical intimacy into a form of worship — the beloved serving the beloved. Divine love expressed not as power but as unhurried, reverent care.`),
+
+S(24,12,'Kuru Yadu-nandana','Nijagāda Sā','Radha to Krishna','Arabhi / varies',
+`कुरु यदुनन्दन चन्दन शिशिर तरेण करेण पयोधरे ।\nमृगमद पत्रकम् अत्र मनोभव मङ्गल कलश सहोदरे ॥`,
+`कुरु यदु-नन्दन ! चन्दन-शिशिर-तरेण करेण पयोधरे ।\nमृग-मद-पत्रकम् अत्र मनो-भव-मङ्गल-कलश-सहोदरे ॥`,
+`kuru yadu-nandana candana-śiśira-tareṇa kareṇa payodhare\nmṛga-mada-patrakam atra manobhava-maṅgala-kalaśa-sahodare`,
+`O son of the Yadus — with your hand cool as sandal, draw musk designs upon my breast; arrange my loosened garments, my hair, my ornaments. After union, Radha asks Krishna to adorn her — and the Lord lovingly does so, completing the great drama of love.`,
+`The final Ashtapadi. In the most astonishing reversal: Krishna — Lord of all worlds — adorns Radha with his own hands. Divine love expressed not in power but in intimate, unhurried tenderness. Jayadeva's final benediction follows.`)
+];
+
+const CG=Object.keys(CANTOS).map(Number).map(c=>({c,...CANTOS[c],songs:SONGS.filter(s=>s.c===c)}));
+
+/* ── PLAY BUTTON ── */
+function PlayBtn({id,type}){
+  const[st,setSt]=useState('idle');
+  const aRef=useRef(null);
+  const url=au(id,type);
+  useEffect(()=>{setSt('idle');if(aRef.current){aRef.current.pause();aRef.current=null;}},[url]);
+  useEffect(()=>()=>{if(aRef.current)aRef.current.pause()},[]);
+  const handle=()=>{
+    if(st!=='idle'){if(aRef.current){aRef.current.pause();aRef.current=null;}setSt('idle');return;}
+    setSt('loading');
+    const a=new Audio(url);
+    aRef.current=a;
+    a.oncanplay=()=>setSt('playing');
+    a.onended=()=>{setSt('idle');aRef.current=null;};
+    a.onerror=()=>setSt('idle');
+    a.play().catch(()=>setSt('idle'));
+  };
+  return html`<button class=${'play-btn'+(st==='playing'?' on':'')}
+    onClick=${handle}
+    style=${st==='loading'?'animation:pulse .5s ease-in-out infinite;opacity:.7':''}
+    aria-label=${st==='playing'?'Pause':'Play'}
+  >${st==='loading'?'·':st==='playing'?'⏸':'▶'}</button>`;
+}
+
+/* ── PEACOCK FEATHER ── */
+function Feather(){
+  const N=40;
+  const barbs=Array.from({length:N},(_,i)=>{
+    const t=i/(N-1),y=660-t*590,qx=115+Math.sin(t*1.7)*6;
+    const len=t<.53?(t/.53)*115:115*(1-((t-.53)/.47)*.68);
+    const dy=t>.58?-((t-.58)/.42)*88:10;
+    const col=t>.60?'#4FD3EC':t>.35?'#2BA8C8':'#1A7A9A';
+    return{qx,y,len,dy,col,sw:.45+t*.45,op:.28+t*.52};
+  });
+  return html`<div class="pf">
+    <svg viewBox="0 0 230 720" style="width:100%;height:100%;opacity:.1">
+      <defs>
+        <linearGradient id="qg" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#1A7090"/><stop offset="70%" stop-color="#4FD3EC"/><stop offset="100%" stop-color="#D8A52A"/>
+        </linearGradient>
+        <filter id="gw"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M115,710 C114,550 113,370 116,62" stroke="url(#qg)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      ${barbs.map(({qx,y,len,dy,col,sw,op},i)=>html`<g key=${i} opacity=${op}>
+        <path d=${'M'+qx+','+y+' Q'+(qx-len*.54)+','+(y+9+dy)+' '+(qx-len)+','+(y+dy*1.7)} stroke=${col} stroke-width=${sw} fill="none"/>
+        <path d=${'M'+qx+','+y+' Q'+(qx+len*.54)+','+(y+9+dy)+' '+(qx+len)+','+(y+dy*1.7)} stroke=${col} stroke-width=${sw} fill="none"/>
+      </g>`)}
+      <ellipse cx="116" cy="105" rx="60" ry="76" fill="#060E22" opacity=".8"/>
+      <ellipse cx="116" cy="105" rx="47" ry="59" fill="none" stroke="#4FD3EC" stroke-width="3.2" opacity=".95" filter="url(#gw)"/>
+      <ellipse cx="116" cy="105" rx="32" ry="40" fill="#4FD3EC" opacity=".38"/>
+      <ellipse cx="116" cy="105" rx="21" ry="26" fill="#D8A52A" opacity=".72"/>
+      <ellipse cx="116" cy="105" rx="12" ry="15" fill="#030810" opacity=".98"/>
+      <ellipse cx="112" cy="97" rx="5.5" ry="7" fill="white" opacity=".42"/>
+    </svg>
+  </div>`;
+}
+
+/* ── SONG LIST (shared between sidebar & drawer) ── */
+function SongList({current,onSelect}){
+  const isInv=current==='inv';
+  return html`<div>
+    <button class=${'inv-btn'+(isInv?' active':'')} onClick=${()=>onSelect('inv')}>
+      <span class="inv-icon">ॐ</span>
+      <span><div class="inv-label">Maṅgalācaraṇa</div><div class="inv-sub">Opening · Meghair Meduram</div></span>
+    </button>
+    ${CG.map(g=>html`<div key=${g.c}>
+      <div class="canto-row"><span>Sarga ${g.c} · ${g.n}</span><span class="canto-line"/></div>
+      <div class="canto-mean">${g.m}</div>
+      ${g.songs.map(s=>html`<button key=${s.n} class=${'song-btn'+(current===s.n?' active':'')} onClick=${()=>onSelect(s.n)}>
+        <span class="sn">${s.n}.</span>
+        <span><div class="st">${s.title}</div><div class="ss">${s.spkr}</div></span>
+      </button>`)}
+    </div>`)}
+  </div>`;
+}
+
+/* ── BLOCK HEADER ── */
+function BlkHd({label,id,type}){
+  return html`<div class="blk-hd">
+    <span class="blk-label">${label}</span>
+    ${id!=null&&html`<${PlayBtn} id=${id} type=${type}/>`}
+    <span class="blk-line"/>
+  </div>`;
+}
+
+/* ── CONTENT VIEW ── */
+function ContentView({item,tab}){
+  const canto=item.isInv?null:CANTOS[item.c];
+  const pid=item.id||String(item.n).padStart(2,'0');
+  return html`<div class="content">
+    ${(tab==='all'||tab==='dev')&&html`<div class="blk">
+      <${BlkHd} label="Sanskrit · संस्कृत" id=${pid} type="s"/>
+      <div class="dev">${item.dev}</div>
+    </div>`}
+    ${(tab==='all'||tab==='hi')&&html`<div class="blk">
+      <${BlkHd} label="हिन्दी उच्चारण"/>
+      <div class="hi-t">${item.hi_t}</div>
+    </div>`}
+    ${(tab==='all'||tab==='rom')&&html`<div class="blk">
+      <${BlkHd} label="Roman · IAST"/>
+      <div class="rom">${item.translit}</div>
+    </div>`}
+    ${(tab==='all'||tab==='en')&&html`<div class="blk">
+      <${BlkHd} label="English Meaning" id=${pid} type="e"/>
+      <div class="en-m">${item.en}</div>
+    </div>`}
+    ${(tab==='all'||tab==='ctx')&&html`<>
+      ${tab==='all'&&html`<div class="lotus-div">✦ ✦ ✦</div>`}
+      ${tab==='all'&&html`<div class="sec-hd">Devotional Context</div>`}
+      <div class="ctx-blk">
+        ${item.ctx}
+        ${!item.isInv&&html`<>
+          <div class="ctx-rule"/>
+          <div>
+            <span class="chip c-spkr">✦ ${item.spkr}</span>
+            <span class="chip c-raga">♪ ${item.raga}</span>
+            <span class="chip c-mood">❁ ${canto.m}</span>
+          </div>
+        </>`}
+      </div>
+    </>`}
+    <div style="height:24px"/>
+  </div>`;
+}
+
+/* ── INSTALL BANNER ── */
+function InstallBanner(){
+  const[show,setShow]=useState(false);
+  const[dProm,setDProm]=useState(null);
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  const isStandalone=window.matchMedia('(display-mode:standalone)').matches||window.navigator.standalone;
+  useEffect(()=>{
+    if(isStandalone)return;
+    const seen=localStorage.getItem('gg-install-seen');
+    if(seen)return;
+    if(isIOS){setTimeout(()=>setShow(true),3000);return;}
+    const h=e=>{e.preventDefault();setDProm(e);setTimeout(()=>setShow(true),3000);};
+    window.addEventListener('beforeinstallprompt',h);
+    return()=>window.removeEventListener('beforeinstallprompt',h);
+  },[]);
+  const dismiss=()=>{setShow(false);localStorage.setItem('gg-install-seen','1');};
+  const install=async()=>{if(dProm){dProm.prompt();const r=await dProm.userChoice;if(r.outcome==='accepted')dismiss();}};
+  if(!show)return null;
+  if(isIOS)return html`<div class="install-bar">
+    <span class="ib-icon">🪷</span>
+    <div class="ib-body">
+      <div class="ib-title">Add to Home Screen</div>
+      <div class="ib-sub">Tap <b>Share ↑</b> then <b>"Add to Home Screen"</b> for the full experience</div>
+    </div>
+    <button class="ib-dismiss" onClick=${dismiss}>✕</button>
+  </div>`;
+  return html`<div class="install-bar">
+    <span class="ib-icon">🪷</span>
+    <div class="ib-body">
+      <div class="ib-title">Install App</div>
+      <div class="ib-sub">Add Gīta Govinda to your home screen</div>
+      <div class="ib-actions">
+        <button class="ib-install" onClick=${install}>Install</button>
+        <button class="ib-dismiss" onClick=${dismiss}>Not now</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ── MAIN APP ── */
+function App(){
+  const[cur,setCur]=useState('inv');
+  const[tab,setTab]=useState('all');
+  const[drawer,setDrawer]=useState(false);
+  const mainRef=useRef(null);
+
+  const item=cur==='inv'?INV:SONGS.find(s=>s.n===cur);
+  const canto=item&&!item.isInv?CANTOS[item.c]:null;
+  const hasPrev=cur!=='inv'&&cur>1;
+  const hasNext=cur!=='inv'?cur<24:true;
+
+  const go=useCallback(n=>{
+    setCur(n);setTab('all');setDrawer(false);
+    if(mainRef.current)mainRef.current.scrollTop=0;
+  },[]);
+
+  const TABS=[['all','All'],['dev','Sanskrit'],['hi','हिन्दी'],['rom','Roman'],['en','Meaning'],['ctx','Context']];
+
+  return html`<div class="app">
+    <div class="stars"/>
+    <${Feather}/>
+
+    <!-- Desktop sidebar -->
+    <div class="sb">
+      <div class="sb-head">
+        <div class="sb-logo">Gīta Govinda</div>
+        <div class="sb-sub">गीतगोविन्द</div>
+        <div class="sb-by">Jayadeva · 12th c. CE · 12 sargas · 24 Ashtapadis</div>
+      </div>
+      <div class="sb-list"><${SongList} current=${cur} onSelect=${go}/></div>
+    </div>
+
+    <!-- Mobile header -->
+    <div class="mob-hdr">
+      <button class="mob-icon-btn" onClick=${()=>setDrawer(true)} aria-label="Song list">☰</button>
+      <div class="mob-title">
+        <div class="mob-title-logo">Gīta Govinda</div>
+        <div class="mob-title-sub">गीतगोविन्द</div>
+      </div>
+      <div style="width:42px"/>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class=${'drawer-bg'+(drawer?' open':'')} onClick=${()=>setDrawer(false)}/>
+    <div class=${'drawer'+(drawer?' open':'')} role="dialog" aria-modal="true">
+      <div class="drawer-hdr">
+        <span class="drawer-hdr-title">Gīta Govinda</span>
+        <button class="drawer-close" onClick=${()=>setDrawer(false)} aria-label="Close">✕</button>
+      </div>
+      <div class="drawer-list"><${SongList} current=${cur} onSelect=${go}/></div>
+    </div>
+
+    <!-- Main -->
+    <div class="main" ref=${mainRef}>
+
+      <!-- Hero -->
+      <div class="hero">
+        ${item.isInv?html`<>
+          <div class="h-canto">Maṅgalācaraṇa · Benedictory Opening</div>
+          <div class="h-num">Prefatory verse — precedes Ashtapadi 1</div>
+          <div class="h-title">Meghair Meduram</div>
+          <div class="h-alt">The cloud-dark sky and Nanda's instruction</div>
+        </>`:html`<>
+          <div class="h-canto">Sarga ${item.c} · ${canto.n} · ${canto.m}</div>
+          <div class="h-num">Ashtapadi ${item.n} of 24</div>
+          <div class="h-title">${item.title}</div>
+          <div class="h-alt">${item.alt}</div>
+          <div class="h-meta">
+            <span><div class="h-tlabel">Sung by</div><div class="h-tval">${item.spkr}</div></span>
+            <span class="h-div"/>
+            <span><div class="h-tlabel">Rāga</div><div class="h-tval">${item.raga}</div></span>
+          </div>
+        </>`}
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        ${TABS.map(([t,l])=>html`<button key=${t} role="tab"
+          class=${'tab'+(tab===t?' active':'')}
+          aria-selected=${tab===t}
+          onClick=${()=>setTab(t)}>${l}</button>`)}
+      </div>
+
+      <!-- Content -->
+      <${ContentView} item=${item} tab=${tab}/>
+
+      <!-- Desktop nav -->
+      <div class="nav-row">
+        <button class="nav-btn" onClick=${()=>cur==='inv'?null:cur===1?go('inv'):go(cur-1)} disabled=${cur==='inv'}>
+          ← ${cur!=='inv'&&cur===1?'Invocation':'Previous'}
+        </button>
+        <span class="nav-pos">${cur==='inv'?'Invocation':`${cur} / 24 · Sarga ${item.c}`}</span>
+        <button class="nav-btn" onClick=${()=>cur==='inv'?go(1):hasNext?go(cur+1):null} disabled=${!hasNext&&cur!=='inv'}>
+          ${cur==='inv'?'Begin →':'Next →'}
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile bottom nav -->
+    <div class="bot-nav">
+      <button class="bot-btn" onClick=${()=>cur==='inv'?null:cur===1?go('inv'):go(cur-1)} disabled=${cur==='inv'}>← Prev</button>
+      <span class="bot-pos">${cur==='inv'?'ॐ':`${cur} / 24`}</span>
+      <button class="bot-btn" onClick=${()=>cur==='inv'?go(1):hasNext?go(cur+1):null} disabled=${!hasNext&&cur!=='inv'}>${cur==='inv'?'Begin →':'Next →'}</button>
+    </div>
+
+    <${InstallBanner}/>
+  </div>`;
+}
+
+/* ── BOOT ── */
+document.getElementById('splash').remove();
+render(html`<${App}/>`,document.getElementById('root'));
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js',{scope:'./'})
+      .catch(()=>{/* sw optional */});
+  });
+}
+</script>
+</body>
+</html>
