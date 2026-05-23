@@ -12,7 +12,7 @@
 <title>Gīta Govinda · गीतगोविन्द</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -162,6 +162,12 @@ body{background:var(--bg);color:var(--cream);font-family:'EB Garamond',serif;ove
 .hi-t{font-family:'Noto Serif Devanagari',serif;font-size:18px;font-weight:400;line-height:2.0;
   color:#EDD898;background:rgba(240,147,74,.07);border:1px solid rgba(240,147,74,.25);
   border-left:3px solid var(--saffron);padding:16px;border-radius:3px;text-align:center;white-space:pre-line}
+.ta-t{font-family:'Noto Serif Tamil','Noto Sans Tamil',serif;font-size:17px;font-weight:500;line-height:2.0;
+  color:#E8D38C;background:rgba(216,165,42,.05);border:1px solid rgba(216,165,42,.22);
+  border-left:3px solid var(--gold-d);padding:16px;border-radius:3px;text-align:center;white-space:pre-line}
+.ta-m{font-family:'Noto Serif Tamil','Noto Sans Tamil',serif;font-size:16px;font-weight:400;line-height:1.85;
+  color:var(--cream);background:rgba(79,211,236,.05);border:1px solid rgba(79,211,236,.20);
+  border-left:3px solid var(--teal);padding:16px;border-radius:3px}
 .rom{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;font-weight:500;line-height:1.9;
   color:var(--teal);background:rgba(79,211,236,.06);border:1px solid rgba(79,211,236,.22);
   border-left:3px solid var(--teal);padding:16px;border-radius:3px;text-align:center;white-space:pre-line}
@@ -247,6 +253,8 @@ body{background:var(--bg);color:var(--cream);font-family:'EB Garamond',serif;ove
   .content{padding:32px 46px}
   .dev{font-size:24px;padding:24px 28px}
   .hi-t{font-size:22px;padding:22px 28px}
+  .ta-t{font-size:20px;padding:22px 28px}
+  .ta-m{font-size:18px;padding:22px 28px}
   .rom{font-size:17.5px;padding:20px 28px}
   .en-m{font-size:19px;padding:22px 28px}
   .ctx-blk{font-size:18px;padding:26px 28px}
@@ -292,7 +300,12 @@ naktaṃ bhīrur ayaṃ tvam eva tad imaṃ rādhe gṛhaṃ prāpaya
 itthaṃ nanda-nideśataś calitayoḥ praty-adhva-kuñja-drumaṃ
 rādhā-mādhavayor jayanti yamunā-kūle rahaḥ-kelayaḥ`,
   en: `The sky grows heavy with clouds; the woodlands darken with tamala trees. He is afraid of the night — O Radha, take him home, so Nanda instructs. As the two set off together, straying tree to tree through the bowers, the secret love-play of Radha and Madhava on the banks of the Yamuna triumphs for ever.`,
-  ctx: `This is the maṅgalācaraṇa — the benedictory opening verse placed BEFORE the first Ashtapadi. In a single stroke it sets the whole poem in motion: Nanda's simple worldly instruction becomes the occasion for divine union. The dark Tamala forest mirrors Krishna's own complexion; nature becomes complicit in the love of Radha and Madhava.`
+  ctx: `This is the maṅgalācaraṇa — the benedictory opening verse placed BEFORE the first Ashtapadi. In a single stroke it sets the whole poem in motion: Nanda's simple worldly instruction becomes the occasion for divine union. The dark Tamala forest mirrors Krishna's own complexion; nature becomes complicit in the love of Radha and Madhava.`,
+  ta_t: `மேகைர் மேதுரம் அம்பரம் · வனபுவஃ ஶ்யாமாஸ் தமாலத்ருமைஃ
+நக்தம் பீருரயம் · த்வமேவ ததிமம் ராதே க்ருஹம் ப்ராபய ।
+இத்தம் நந்த நிதேஶதஶ் சலிதயோஃ ப்ரத்யத்வ குஞ்ஜத்ருமம்
+ராதா மாதவயோர் ஜயந்தி யமுனா கூலே ரஹஃ கேலயஃ ॥`,
+  ta_m: `வானம் மேகங்களால் கனத்துவிட்டது; காடுகள் தமால மரங்களால் இருண்டுள்ளன. "இரவைக் கண்டு அவன் பயப்படுகிறான் — ராதே, அவனை வீட்டிற்கு அழைத்துச் செல்" என நந்தன் கூறினான். இவ்வாறு இருவரும் சேர்ந்து புறப்பட்டு, ஒவ்வொரு குஞ்ஜத்து மரங்களின் வழியேயும் சென்று, யமுனைக் கரையில் ராதை-மாதவனின் ரகசிய காதல் விளையாட்டே என்றும் வெற்றியடைகிறது.`
 };
 
 const CANTOS = {
@@ -310,8 +323,8 @@ const CANTOS = {
   12: { n: 'Suprīta Pītāmbara',       m: 'Contented Krishna in Yellow Silk' }
 };
 
-const S = (n, c, title, alt, spkr, raga, dev, hi_t, translit, en, ctx) =>
-  ({ n, c, title, alt, spkr, raga, dev, hi_t, translit, en, ctx });
+const S = (n, c, title, alt, spkr, raga, dev, hi_t, translit, en, ctx, ta_t, ta_m) =>
+  ({ n, c, title, alt, spkr, raga, dev, hi_t, translit, en, ctx, ta_t, ta_m });
 
 const SONGS = [
 S(1,1,'Pralaya Payodhi Jale','Daśāvatāra Stuti · Jaya Jagadīśa Hare','Jayadeva','Mohanam / varies',
@@ -325,7 +338,11 @@ S(1,1,'Pralaya Payodhi Jale','Daśāvatāra Stuti · Jaya Jagadīśa Hare','Jaya
 keśava dhṛta-mīna-śarīra
 jaya jagadīśa hare`,
 `In the waters of cosmic dissolution you upheld the Vedas, effortlessly playing the part of a boat. O Keshava who took the body of a fish — victory to you, O Lord of the Universe, Hari! Opening verse of the Dashavatara hymn praising Vishnu's ten incarnations.`,
-`The Dashavatara Stotra spans eight couplets, each praising one of Vishnu's avatars with a single precise metaphor — from fish to tortoise to boar to Narasimha. Performed as a standalone piece across Carnatic, Odissi and Sopana traditions, it remains one of the most celebrated texts in Indian sacred music.`),
+`The Dashavatara Stotra spans eight couplets, each praising one of Vishnu's avatars with a single precise metaphor — from fish to tortoise to boar to Narasimha. Performed as a standalone piece across Carnatic, Odissi and Sopana traditions, it remains one of the most celebrated texts in Indian sacred music.`,
+`ப்ரளய பயோதி ஜலே த்ருதவான் அஸி வேதம் ।
+கேஶவ ! த்ருத மீன ஶரீர
+ஜய ஜகதீஶ ஹரே ॥`,
+`பிரளய காலத்து கடல் நீரில் வேதங்களைக் காத்து, தோணியாக நிலைபெற்றாய். ஓ கேசவா, மீன் வடிவம் கொண்டவனே — ஜகதீசன் ஹரியே, உனக்கு ஜெயம்! தசாவதார ஸ்தோத்திரத்தின் தொடக்க ஶ்லோகம் — விஷ்ணுவின் பத்து அவதாரங்களைப் போற்றும் பாடல்.`),
 
 S(2,1,'Śrita Kamalā Kuca Maṇḍala','Jaya Jaya Deva Hare','Jayadeva','Varies by tradition',
 `श्रितकमलाकुचमण्डल धृतकुण्डल ।
@@ -335,7 +352,10 @@ S(2,1,'Śrita Kamalā Kuca Maṇḍala','Jaya Jaya Deva Hare','Jayadeva','Varies
 `śrita-kamalā-kuca-maṇḍala dhṛta-kuṇḍala
 jaya jaya deva hare`,
 `O you who rest upon Lakshmi's breast, wearing glittering earrings and a forest garland — victory, victory to you, O divine Hari! This second hymn closes the invocatory praise before the narrative of Radha and Krishna's love begins.`,
-`The refrain 'jaya jaya deva hare' makes this one of the most universally sung devotional pieces of the entire text, especially in temple worship. It completes the Dashavatara sequence and transitions the poem from cosmic praise to intimate love.`),
+`The refrain 'jaya jaya deva hare' makes this one of the most universally sung devotional pieces of the entire text, especially in temple worship. It completes the Dashavatara sequence and transitions the poem from cosmic praise to intimate love.`,
+`ஶ்ரித கமலா குச மண்டல த்ருத குண்டல ।
+ஜய ஜய தேவ ஹரே ॥`,
+`லட்சுமியின் மார்பில் தங்கி, மின்னும் குண்டலங்களை அணிந்து, வனமாலை சூடியவனே — தேவ ஹரியே, ஜெய ஜெயம்! இரண்டாவது ஸ்துதிப் பாடல் — தசாவதார ஸ்துதி நிறைவடைந்து, ராதா-கிருஷ்ணரின் காதல் கதைக்கு முன்னோட்டம் தருகிறது.`),
 
 S(3,2,'Lalita Lavaṅga Latā','Viharati Harir iha Sarasa-vasante','Sakhi to Radha','Vasanta / Hindola',
 `ललितलवङ्गलतापरिशीलनकोमलमलयसमीरे
@@ -348,7 +368,11 @@ S(3,2,'Lalita Lavaṅga Latā','Viharati Harir iha Sarasa-vasante','Sakhi to Rad
 viharati harir iha sarasa-vasante
 nṛtyati yuvati-janena samaṃ sakhi virahi-janasya durante`,
 `A soft Malaya breeze caresses tender clove vines; the forest bowers hum with bees and ring with the cuckoo's cry. Here Hari plays in the lush springtime, friend — dancing with the young women, while for the one parted from him this spring is anguish without end.`,
-`The crown jewel of the Gita Govinda. The cascade of soft 'L' sounds in the opening line is celebrated as one of the supreme achievements in Sanskrit poetry. It holds spring's intoxicating beauty and Radha's separation-pain in perfect tension — a signature piece of every great Carnatic vocalist and Odissi dancer.`),
+`The crown jewel of the Gita Govinda. The cascade of soft 'L' sounds in the opening line is celebrated as one of the supreme achievements in Sanskrit poetry. It holds spring's intoxicating beauty and Radha's separation-pain in perfect tension — a signature piece of every great Carnatic vocalist and Odissi dancer.`,
+`லலித லவங்க லதா பரிஶீலன கோமல மலய ஸமீரே ।
+விஹரதி ஹரிஃ இஹ ஸரஸ வஸந்தே ।
+ந்ருத்யதி யுவதி ஜனேன ஸமம் ஸகி ! விரஹி ஜனஸ்ய துரந்தே ॥`,
+`மென்மையான மலய தென்றல் இள இலவங்க கொடிகளை வருடுகிறது; காட்டுக் குஞ்ஜங்கள் வண்டுகளின் ரீங்காரத்தாலும் குயிலின் கூவலாலும் முழங்குகின்றன. இங்கே ஹரி இனிய வசந்தத்தில் விளையாடுகிறான், தோழியே — இளம் பெண்களோடு நடனமாடுகிறான்; ஆனால் அவனைப் பிரிந்திருப்பவளுக்கு இந்த வசந்தம் முடிவில்லாத வேதனை.`),
 
 S(4,2,'Candana Carcita','Harir iha Mugdha-vadhū-nikare','Sakhi to Radha','Kambhoji / varies',
 `चन्दनचर्चितनीलकलेवरपीतवसनवनमाली
@@ -358,7 +382,10 @@ S(4,2,'Candana Carcita','Harir iha Mugdha-vadhū-nikare','Sakhi to Radha','Kambh
 `candana-carcita-nīla-kalevara-pīta-vasana-vanamālī
 harir iha mugdha-vadhū-nikare vilāsini vilasati keli-pare`,
 `His dark body anointed with sandal paste, clothed in yellow silk, garlanded with wildflowers; cheeks lit by swaying jewelled earrings, his smile radiant — here Hari sports among the enchanted cowherd women, lost in love-play, O lovely one.`,
-`Krishna in his most radiant form — the Venugopal iconography of yellow silk and sandal paste — seen through Radha's longing eyes. In Vaishnavism the gopis represent pure souls whose yearning for Krishna mirrors the soul's longing for the divine.`),
+`Krishna in his most radiant form — the Venugopal iconography of yellow silk and sandal paste — seen through Radha's longing eyes. In Vaishnavism the gopis represent pure souls whose yearning for Krishna mirrors the soul's longing for the divine.`,
+`சந்தன சர்சித நீல களேவர பீத வஸன வனமாலீ ।
+ஹரிஃ இஹ முக்த வதூ நிகரே விலாஸினி ! விலஸதி கேலி பரே ॥`,
+`சந்தனம் பூசிய நீல மேனி, பீத ஆம்பரம் அணிந்து, வனமாலை சூடி; ஆட்டும் மணிக் குண்டலங்களால் கன்னம் ஒளிர, புன்சிரிப்பு வீச — இங்கே ஹரி மயங்கிய கோபியர் கூட்டத்தோடு சல்லாபம் செய்கிறான், ஓ அழகியே.`),
 
 S(5,3,'Sañcarad Adhara Sudhā','Rāse Harim iha','Radha (recalling)','Varies by tradition',
 `सञ्चरदधरसुधामधुरध्वनिमुखरितमोहनवंशम्
@@ -368,7 +395,10 @@ S(5,3,'Sañcarad Adhara Sudhā','Rāse Harim iha','Radha (recalling)','Varies by
 `sañcarad-adhara-sudhā-madhura-dhvani-mukharita-mohana-vaṃśam
 rāse harim iha vihita-vilāsaṃ smarati mano mama kṛta-parihāsam`,
 `His enchanting flute murmurs sweet as nectar at his moving lips; restless glances, swaying crest, trembling earrings at his cheeks. My heart remembers Hari at his playful sport in the rasa dance — the Hari who once teased me there.`,
-`Canto 3 turns inward. Now Radha burns in separation while Krishna sports freely. Memory becomes torment. This marks the shift from outward description to the interior life of viraha — which Vaishnava thought treats as the most purifying devotional state.`),
+`Canto 3 turns inward. Now Radha burns in separation while Krishna sports freely. Memory becomes torment. This marks the shift from outward description to the interior life of viraha — which Vaishnava thought treats as the most purifying devotional state.`,
+`ஸஞ்சரத் அதர ஸுதா மதுர த்வனி முகரித மோஹன வம்ஶம் ।
+ராஸே ஹரிம் இஹ விஹித விலாஸம் · ஸ்மரதி மனோ மம க்ருத பரிஹாஸம் ॥`,
+`அவன் மோகனப் புல்லாங்குழல் அசையும் இதழ்களில் அமுதம் போல் இனிய ஓசை எழுப்புகிறது; அலையும் பார்வை, அசையும் சிகை, கன்னத்தில் துடிக்கும் குண்டலங்கள். ராஸ நடனத்தில் என்னை ஒருமுறை கேலி செய்த அந்த ஹரியின் விளையாட்டை என் மனம் நினைவில் கொண்டே இருக்கிறது.`),
 
 S(6,4,'Sakhi He Keśi-mathanam Udāram','Nibhṛta Nikuñja','Radha to Sakhi','Varies by tradition',
 `सखि हे केशिमथनमुदारम्
@@ -378,7 +408,10 @@ S(6,4,'Sakhi He Keśi-mathanam Udāram','Nibhṛta Nikuñja','Radha to Sakhi','V
 `sakhi he keśi-mathanam udāram
 ramaya mayā saha madana-manoratha-bhāvitayā sa-vikāram`,
 `O friend — bring the generous slayer of Keshi to make love with me, trembling and stirred as I am with longing's desire. Radha confides her deepest yearning to her trusted sakhi.`,
-`The sakhi — the trusted friend-confidante — becomes the indispensable mediator between Radha and Krishna. In devotional reading she represents the guru who knows both the soul and the divine and facilitates their union.`),
+`The sakhi — the trusted friend-confidante — becomes the indispensable mediator between Radha and Krishna. In devotional reading she represents the guru who knows both the soul and the divine and facilitates their union.`,
+`ஸகி ! ஹே கேஶி மதனம் உதாரம் ।
+ரமய மயா ஸஹ மதன மனோரத பாவிதயா ஸ விகாரம் ॥`,
+`தோழியே — கேசியை வதைத்த உதார ஹரியை என்னோடு சேர்த்து விடு; காதல் ஆவலால் நடுங்கி, உள்ளம் கலங்கி நிற்கும் என்னோடு அவன் இணைய வேண்டும். ராதை தன் நெஞ்சின் ஆழ்ந்த விருப்பத்தை நம்பிய சகியிடம் கூறுகிறாள்.`),
 
 S(7,4,'Māmiyaṃ Calitā Vilokya','Hari Hari','Krishna (lamenting)','Varies by tradition',
 `मामियं चलिता विलोक्य वृतं वधूनिचयेन
@@ -388,7 +421,10 @@ S(7,4,'Māmiyaṃ Calitā Vilokya','Hari Hari','Krishna (lamenting)','Varies by 
 `māmiyaṃ calitā vilokya vṛtaṃ vadhū-nicayena
 hari hari hatādaratayā gatā sā kupiteva`,
 `Seeing me encircled by the throng of cowherd women, she — alas, alas! — feeling slighted, turned and went away as though in anger. Krishna laments Radha's wounded departure.`,
-`A rare moment of Krishna's own remorse. The doubled cry 'hari hari' reveals that the divine too is wounded by love — not a distant unmoved absolute, but a longing beloved who suffers from the pain he has caused.`),
+`A rare moment of Krishna's own remorse. The doubled cry 'hari hari' reveals that the divine too is wounded by love — not a distant unmoved absolute, but a longing beloved who suffers from the pain he has caused.`,
+`மாம் இயம் சலிதா விலோக்ய வ்ருதம் வதூ நிசயேன ।
+ஹரி ஹரி ! ஹத ஆதரதயா கதா ஸா குபிதா இவ ॥`,
+`கோபியர் கூட்டத்தால் சூழப்பட்டிருக்கும் என்னைக் கண்டு — அந்தோ அந்தோ! — அவள் என் அலட்சியத்தை உணர்ந்து, கோபமேற்பட்டது போல் திரும்பிச் சென்று விட்டாள். கிருஷ்ணன் ராதையின் புண்பட்ட பிரிவை வருந்துகிறான்.`),
 
 S(8,5,'Nindati Candanam','Sā Virahe Tava Dīnā','Sakhi to Krishna','Varies by tradition',
 `निन्दति चन्दनमिन्दुकिरणमनुविन्दति खेदम्
@@ -401,7 +437,11 @@ S(8,5,'Nindati Candanam','Sā Virahe Tava Dīnā','Sakhi to Krishna','Varies by 
 sā virahe tava dīnā
 mādhava manasija-viśikha-bhayād iva bhāvanayā tvayi līnā`,
 `She reviles the sandal paste, finds only torment in the moon's rays; the Malaya breeze feels like venom from a serpent's den. In separation from you she is wretched, Madhava — as if fearing love's arrows, she has dissolved into you in every thought.`,
-`The great paradox of viraha: everything ordinarily cooling — moonlight, sandal, breeze — turns to fire for the separated lover. The senses become supersensitised, perceiving the divine even in its absence.`),
+`The great paradox of viraha: everything ordinarily cooling — moonlight, sandal, breeze — turns to fire for the separated lover. The senses become supersensitised, perceiving the divine even in its absence.`,
+`நிந்ததி சந்தனம் இந்து கிரணம் அனு விந்ததி கேதம் ।
+ஸா விரஹே தவ தீனா ।
+மாதவ ! மனஸிஜ விஶிக பயாத் இவ பாவனயா த்வயி லீனா ॥`,
+`சந்தனத்தை சபிக்கிறாள், சந்திர கிரணங்களில் கூட வேதனை காண்கிறாள்; மலய தென்றல் விஷப் பாம்பின் மூச்சாகத் தோன்றுகிறது. உன்னைப் பிரிந்து கதி கெட்டிருக்கிறாள், மாதவா — காமன் அம்பின் பயத்தால் என்பது போல எண்ணமெல்லாம் உன்னில் கரைந்து போனாள்.`),
 
 S(9,5,'Stana-vinihitam api Hāram','Rādhikā Tava Virahe','Sakhi to Krishna','Varies by tradition',
 `स्तनविनिहितमपि हारमुदारं
@@ -411,7 +451,10 @@ S(9,5,'Stana-vinihitam api Hāram','Rādhikā Tava Virahe','Sakhi to Krishna','V
 `stana-vinihitam api hāram udāraṃ
 sā manute kṛśa-tanur iva bhāram`,
 `Frail-bodied, she feels even a delicate necklace laid upon her breast as an unbearable weight; sandal paste seems poison, cool breezes seem flame. So worn has she grown in separation from you, Keshava.`,
-`The sakhi catalogues Radha's physical wasting — the classic depiction of the paramabhakta whose body fails under the weight of longing. In the Bhagavata Purana tradition this is the highest symptom of divine love.`),
+`The sakhi catalogues Radha's physical wasting — the classic depiction of the paramabhakta whose body fails under the weight of longing. In the Bhagavata Purana tradition this is the highest symptom of divine love.`,
+`ஸ்தன விநிஹிதம் அபி ஹாரம் உதாரம் ।
+ஸா மனுதே க்ருஶ தனுஃ இவ பாரம் ॥`,
+`மெலிந்த உடலுடன் அவள் மார்பில் கிடக்கும் நயமான மாலையையும் தாங்க முடியாத பாரமாக உணர்கிறாள்; சந்தனம் விஷம் போலும், குளிர் தென்றல் தீ போலும் தோன்றுகின்றன. கேசவா, உன்னைப் பிரிந்து இவ்வளவு வாடி விட்டாள்.`),
 
 S(10,6,'Vahati Malaya-samīre','Tava Virahe Vanamālī','Sakhi to Krishna','Varies by tradition',
 `वहति मलयसमीरे मदनमुपनिधाय
@@ -421,7 +464,10 @@ S(10,6,'Vahati Malaya-samīre','Tava Virahe Vanamālī','Sakhi to Krishna','Vari
 `vahati malaya-samīre madanam upanidhāya
 sphuṭati kusuma-nikare virahi-hṛdaya-dalanāya`,
 `As the Malaya breeze blows it carries Madana's fire with it; the blossoms burst open as if to split the heart of the separated lover. She lies sleepless, only your name on her lips — come to her, O Vanamali.`,
-`Canto 6 holds only this one song. Spring's beauty has become an instrument of torture for Radha; every natural loveliness intensifies her pain. The sakhi's plea to Krishna grows urgent: only his arrival can restore her.`),
+`Canto 6 holds only this one song. Spring's beauty has become an instrument of torture for Radha; every natural loveliness intensifies her pain. The sakhi's plea to Krishna grows urgent: only his arrival can restore her.`,
+`வஹதி மலய ஸமீரே மதனம் உப நிதாய ।
+ஸ்புடதி குஸும நிகரே விரஹி ஹ்ருதய தலனாய ॥`,
+`மலய தென்றல் காமன் தீயைச் சுமந்து வீசுகிறது; மலர்கள், பிரிந்தவளின் இதயத்தைப் பிளக்கவே போலவே, மலர்கின்றன. உறக்கம் இன்றி உன் பெயரையே உச்சரித்தபடி கிடக்கிறாள் — அவளிடம் வா, ஓ வனமாலியே.`),
 
 S(11,7,'Rati-sukha-sāre / Dhīra Samīre','Yamunā Tīre','Sakhi to Radha','Kedaragowla / Pahadi',
 `धीरसमीरे यमुनातीरे वसति वने वनमाली ।
@@ -431,7 +477,10 @@ S(11,7,'Rati-sukha-sāre / Dhīra Samīre','Yamunā Tīre','Sakhi to Radha','Ked
 `dhīra-samīre yamunā-tīre vasati vane vanamālī
 rati-sukha-sāre gatam abhisāre`,
 `By the gentle Yamuna in the steady breeze, the forest-garlanded one waits in the grove. Go to the tryst, where the very essence of love's joy awaits — the sakhi urges Radha onward toward Krishna.`,
-`The prelude verse 'dhīra-samīre yamunā-tīre' is one of the most recognised openings in all Indian classical music. The Yamuna riverbank becomes the eternal, timeless setting of divine love-play.`),
+`The prelude verse 'dhīra-samīre yamunā-tīre' is one of the most recognised openings in all Indian classical music. The Yamuna riverbank becomes the eternal, timeless setting of divine love-play.`,
+`தீர ஸமீரே யமுனா தீரே வஸதி வனே வனமாலீ ।
+ரதி ஸுக ஸாரே கதம் அபிஸாரே ॥`,
+`அமைதியான தென்றலில், யமுனைக் கரையில், காட்டுக் குடிலில் வனமாலி காத்திருக்கிறான். காதல் இன்பத்தின் சாரமே காத்திருக்கும் சந்திப்பிற்குச் செல் — என சகி ராதையைக் கிருஷ்ணனை நோக்கி உந்துகிறாள்.`),
 
 S(12,7,'Paśyati Diśi Diśi','Nātha Hare Sīdati Rādhā','Sakhi to Krishna','Sankarabharanam',
 `पश्यति दिशि दिशि रहसि भवन्तम्
@@ -441,7 +490,10 @@ S(12,7,'Paśyati Diśi Diśi','Nātha Hare Sīdati Rādhā','Sakhi to Krishna','
 `paśyati diśi diśi rahasi bhavantam
 nātha hare sīdati rādhā vāsa-gṛhe`,
 `She looks for you in every direction, secretly, longingly; her whole being absorbed in the waves of your virtues. O Master Hari, Radha languishes in the bower — every sight and every word has become only you.`,
-`Radha's gaze becomes a form of meditation — every direction holds the possibility of Krishna's presence. Her world has narrowed to him alone, echoing the bhakti ideal: love is when the beloved becomes the only thought, the only sight.`),
+`Radha's gaze becomes a form of meditation — every direction holds the possibility of Krishna's presence. Her world has narrowed to him alone, echoing the bhakti ideal: love is when the beloved becomes the only thought, the only sight.`,
+`பஶ்யதி திஶி திஶி ரஹஸி பவந்தம் ।
+நாத ! ஹரே ! ஸீததி ராதா வாஸ க்ருஹே ॥`,
+`ஒவ்வொரு திசையிலும் இரகசியமாக உன்னைத் தேடுகிறாள்; உன் குணங்களின் அலைகளில் முழுவதும் ஆழ்ந்து போயிருக்கிறாள். நாதா ஹரியே, ராதை குஞ்ஜத்தில் கதியற்றுக் கிடக்கிறாள் — காண்கின்ற, கேட்கின்ற யாவும் உனதே ஆகி விட்டன.`),
 
 S(13,7,"Kathita-samaye'pi",'Yāmi He Kam iha Śaraṇam','Radha (despairing)','Ahiri',
 `कथितसमयेऽपि हरिरहह न ययौ वनम्
@@ -451,7 +503,10 @@ S(13,7,"Kathita-samaye'pi",'Yāmi He Kam iha Śaraṇam','Radha (despairing)','A
 `kathita-samaye'pi harir ahaha na yayau vanam
 yāmi he kam iha śaraṇaṃ sakhī-jana-vacana-vañcitā`,
 `Even at the appointed hour — alas, alas! — Hari did not come to the grove. Deceived by my friends' assurances, where now shall I go for refuge? Radha despairs when Krishna fails to appear at the tryst.`,
-`The agony of the failed tryst. Canto 7 is the longest (four songs) and traces Radha through hope, betrayal, despair and jealousy — the full emotional range of the heroine before the great turn toward reunion.`),
+`The agony of the failed tryst. Canto 7 is the longest (four songs) and traces Radha through hope, betrayal, despair and jealousy — the full emotional range of the heroine before the great turn toward reunion.`,
+`கதித ஸமயே அபி ஹரிஃ அஹஹ ! ந யயௌ வனம் ।
+யாமி ஹே ! கம் இஹ ஶரணம் ஸகீ ஜன வசன வஞ்சிதா ॥`,
+`சொல்லப்பட்ட நேரத்திலும் — அந்தோ அந்தோ! — ஹரி தோப்பிற்கு வரவில்லை. தோழியரின் உறுதிமொழியால் ஏமாற்றப்பட்டு இப்போது யாரிடம் தஞ்சம் புகுவேன்? சந்திப்பு நடைபெறாமல் ராதை வேதனைப்படுகிறாள்.`),
 
 S(14,7,'Smara-samarocita','Kāpi Madhu-ripuṇā','Radha imagining','Saranga',
 `स्मरसमरोचितविरचितवेशा
@@ -461,7 +516,10 @@ S(14,7,'Smara-samarocita','Kāpi Madhu-ripuṇā','Radha imagining','Saranga',
 `smara-samarocita-viracita-veśā
 harim eka-rasaṃ ciram abhilaṣita-vilāsam`,
 `Dressed for the battle of love, some fortunate woman is enjoying with Hari the long-desired love-play. So Radha torments herself, imagining Krishna with a rival as she waits in vain and alone.`,
-`The fevered imagination of the jealous lover. Jayadeva holds nothing back in depicting the full human reality of love's darkness before the light of reconciliation.`),
+`The fevered imagination of the jealous lover. Jayadeva holds nothing back in depicting the full human reality of love's darkness before the light of reconciliation.`,
+`ஸ்மர ஸமர உசித விரசித வேஶா ।
+ஹரிம் ஏக ரஸம் சிரம் அபிலஷித விலாஸம் ॥`,
+`காதல் போருக்குத் தயாராக ஒப்பனை செய்து கொண்ட பாக்கியசாலி யாரோ ஒரு பெண் ஹரியோடு நெடுங்காலமாக ஏங்கிய இன்பம் அனுபவிக்கிறாள். ராதை வீணில் காத்திருந்து, தனிமையில் கிருஷ்ணனை மற்றொரு பெண்ணுடன் கற்பனை செய்து தன்னை வாட்டுகிறாள்.`),
 
 S(15,8,'Samudita Madane','Ramaṇī Vadane','Radha rebuking Krishna','Saveri',
 `समुदितमदने रमणीवदने चुम्बनवलिताधरे
@@ -471,7 +529,10 @@ S(15,8,'Samudita Madane','Ramaṇī Vadane','Radha rebuking Krishna','Saveri',
 `samudita-madane ramaṇī-vadane cumbana-valitādhare
 ramate yamunā-pulina-vane vijayī murārir adhunā`,
 `At dawn Radha sees on Krishna the marks of a night spent with another — kohl-smudged, garland-crushed. With wounded dignity she rebukes him: the conqueror Murari now roams the Yamuna groves, she says bitterly.`,
-`Canto 8 (Vilakshya Lakshmipati — the abashed Lord) holds one song. Krishna arrives at last but bearing traces of another tryst. Radha's mana — sacred wounded pride — is love expressing its highest, most self-aware form.`),
+`Canto 8 (Vilakshya Lakshmipati — the abashed Lord) holds one song. Krishna arrives at last but bearing traces of another tryst. Radha's mana — sacred wounded pride — is love expressing its highest, most self-aware form.`,
+`ஸமுதித மதனே ரமணீ வதனே சும்பன வலித அதரே ।
+ரமதே யமுனா புலின வனே விஜயீ முராரிஃ அதுனா ॥`,
+`விடியற்காலையில், ராதை கிருஷ்ணன் மேனியில் வேறொருத்தியுடன் கழித்த இரவின் சுவடுகளைக் காண்கிறாள் — மை குலைந்த கண், சுருண்ட மாலை. புண்பட்ட கௌரவத்துடன் கடிந்துகொள்கிறாள்: வெற்றியாளன் முராரி இப்போது யமுனைத் தோப்பில் சுற்றுகிறான், என்றுக் கசப்புடன் சொல்கிறாள்.`),
 
 S(16,9,'Anila-tarala','Sakhi Yā Ramitā Vanamālinā','Sakhi to Radha','Punnagavarali',
 `अनिलतरलकुवलयनयनेन
@@ -481,7 +542,10 @@ S(16,9,'Anila-tarala','Sakhi Yā Ramitā Vanamālinā','Sakhi to Radha','Punnaga
 `anila-tarala-kuvalaya-nayanena
 sakhi yā ramitā vanamālinā`,
 `O friend with eyes trembling like lotuses in the breeze — set aside your pride. She who is loved by the forest-garlanded one is truly blessed; do not waste this precious love on anger.`,
-`Canto 9 holds one song. The sakhi shifts from messenger to counsellor — the guru's gentle insistence: do not let pride delay the union of the soul with the divine.`),
+`Canto 9 holds one song. The sakhi shifts from messenger to counsellor — the guru's gentle insistence: do not let pride delay the union of the soul with the divine.`,
+`அனில தரல குவலய நயனேன ।
+ஸகி ! யா ரமிதா வனமாலினா ॥`,
+`தென்றலில் அசையும் தாமரை போன்ற கண்களையுடைய தோழியே — உன் கோபத்தை விட்டு விடு. வனமாலி யாரிடம் காதல் செலுத்துகிறானோ அவளே பாக்கியசாலி; உன் பெறுமதியான காதலை கோபத்தினால் வீணாக்காதே.`),
 
 S(17,10,'Rajani-janita-guru-jāgara','Yāhi Mādhava Yāhi Keśava','Radha (mana)','Arabhi',
 `रजनिजनितगुरुजागररागकषायितमलसनिमेषम्
@@ -491,7 +555,10 @@ S(17,10,'Rajani-janita-guru-jāgara','Yāhi Mādhava Yāhi Keśava','Radha (mana
 `rajani-janita-guru-jāgara-rāga-kaṣāyita-malasa-nimeṣam
 yāhi mādhava yāhi keśava mā vada kaitava-vādam`,
 `Your eyes heavy and reddened from a night of wakeful passion — Go, Madhava, go! Go, Keshava! Do not speak your deceitful sweet words to me now. Radha sends Krishna away in proud, wounded reproach.`,
-`The famous 'yāhi mādhava' — Radha at her most powerful, refusing Krishna. This is mana at its peak: not rejection but love's most vulnerable and self-aware expression. The insistent rhythm forms the cornerstone of Odissi abhinaya.`),
+`The famous 'yāhi mādhava' — Radha at her most powerful, refusing Krishna. This is mana at its peak: not rejection but love's most vulnerable and self-aware expression. The insistent rhythm forms the cornerstone of Odissi abhinaya.`,
+`ரஜனி ஜனித குரு ஜாகர ராக கஷாயித மலஸ நிமேஷம் ।
+யாஹி மாதவ ! யாஹி கேஶவ ! மா வத கைதவ வாதம் ॥`,
+`பிறரிடம் கழித்த இரவின் களைப்பால் கண்கள் கனத்துச் சிவந்திருக்கின்றன — செல், மாதவா, செல்! செல், கேசவா! உன் வஞ்சக இனிய சொற்களை இப்போது என்னிடம் பேசாதே. ராதை செருக்கும் வேதனையும் கொண்டு கிருஷ்ணனை அனுப்புகிறாள்.`),
 
 S(18,10,'Harir Abhisarati','Vahati Mṛdu Pavane','Sakhi to Radha','Yadukulakamboji',
 `हरिरभिसरति वहति मृदुपवने
@@ -501,7 +568,10 @@ S(18,10,'Harir Abhisarati','Vahati Mṛdu Pavane','Sakhi to Radha','Yadukulakamb
 `harir abhisarati vahati mṛdu-pavane
 mādhave mā kuru mānini mānam aye`,
 `Hari himself is coming to you through the soft night breeze — set aside your anger now, proud one. He who melts at your very quarrel has come to your door. The sakhi urges Radha: grace is at hand.`,
-`The sakhi's role rises to that of the wise guru: divine grace is present, do not let pride delay the moment. The gentle breeze itself carries Krishna's approach, turning all of nature into a messenger of reunion.`),
+`The sakhi's role rises to that of the wise guru: divine grace is present, do not let pride delay the moment. The gentle breeze itself carries Krishna's approach, turning all of nature into a messenger of reunion.`,
+`ஹரிஃ அபிஸரதி வஹதி ம்ருது பவனே ।
+மாதவே ! மா குரு மானினி ! மானம் அயே ॥`,
+`மென்மையான இரவுத் தென்றலில் ஹரி உன்னை நோக்கி வந்து கொண்டிருக்கிறான் — செருக்கானவளே, இனி கோபத்தை விடு. உன் சண்டையிலேயே உருகிய அவன் உன் வாயிலுக்கு வந்துள்ளான். சகி ராதையை வேண்டுகிறாள்: அருள் கிட்டிய தருணம் இது.`),
 
 S(19,10,'Vadasi Yadi Kiñcidapi','Priye Cāruśīle Muñca Mānam','Krishna pleading','Mukhari',
 `वदसि यदि किञ्चिदपि दन्तरुचिकौमुदी हरति दरतिमिरमतिघोरम्
@@ -511,7 +581,10 @@ S(19,10,'Vadasi Yadi Kiñcidapi','Priye Cāruśīle Muñca Mānam','Krishna plea
 `vadasi yadi kiñcid api danta-ruci-kaumudī harati dara-timiram ati-ghoram
 priye cāru-śīle muñca mayi mānam anidānam`,
 `If you would say even a single word, the moonlight of your teeth would scatter the terrible darkness of my dread. O beloved, O lovely-natured one — set aside this groundless anger; love's fire consumes me, grant me the nectar of your lotus face.`,
-`A watershed: Krishna takes the posture of a pleading devotee. This song contains the verse Jayadeva hesitated to write — Krishna asking Radha to place her feet upon his head. Chaitanya Mahaprabhu wept at this Ashtapadi, seeing Radha's position as the highest spiritual ideal ever conceived.`),
+`A watershed: Krishna takes the posture of a pleading devotee. This song contains the verse Jayadeva hesitated to write — Krishna asking Radha to place her feet upon his head. Chaitanya Mahaprabhu wept at this Ashtapadi, seeing Radha's position as the highest spiritual ideal ever conceived.`,
+`வதஸி யதி கிஞ்சித் அபி தந்த ருசி கௌமுதீ ஹரதி தர திமிரம் அதி கோரம் ।
+ப்ரியே ! சாரு ஶீலே ! முஞ்ச மயி மானம் அநிதானம் ॥`,
+`நீ ஒரு வார்த்தை மட்டும் கூறினாலும், உன் பற்களின் நிலவொளி என் கடும் இருளை அகற்றும். ஓ பிரியமே, அழகிய குணமுள்ளவளே — இக் காரணமற்ற கோபத்தை விடு; காதல் தீ என்னை எரிக்கிறது, உன் தாமரை முகத்தின் அமுதத்தை எனக்கு அளிப்பாய்.`),
 
 S(20,11,'Viracita-cāṭu-vacana','Mugdhe Madhu-mathana','Sakhi to Radha','Varies by tradition',
 `विरचितचाटुवचनरचनं चरणे रचितप्रणिपातम्
@@ -521,7 +594,10 @@ S(20,11,'Viracita-cāṭu-vacana','Mugdhe Madhu-mathana','Sakhi to Radha','Varie
 `viracita-cāṭu-vacana-racanaṃ caraṇe racita-praṇipātam
 mugdhe madhusūdanam anu`,
 `He has woven sweet words of entreaty; he has bowed at your very feet. O innocent one — why do you still resist the slayer of Madhu? Go to him now.`,
-`Canto 11 (Sananda Damodara) begins the movement toward union. The reversal is complete: the Lord of all worlds bows at the devotee's feet. This image of Hari humbled before Radha became central to Bengal Vaishnavism.`),
+`Canto 11 (Sananda Damodara) begins the movement toward union. The reversal is complete: the Lord of all worlds bows at the devotee's feet. This image of Hari humbled before Radha became central to Bengal Vaishnavism.`,
+`விரசித சாடு வசன ரசனம் சரணே ரசித ப்ரணிபாதம் ।
+முக்தே ! மது ஸூதனம் அனு ॥`,
+`அவன் இனிய இரக்க வார்த்தைகளை அழகுற அமைத்தான்; உன் காலடியில் சாஷ்டாங்கமாக வீழ்ந்தான். அப்பாவியே — இன்னும் ஏன் மது சூதனனை எதிர்க்கிறாய்? இப்போது அவனிடம் செல்.`),
 
 S(21,11,'Praviśa Rādhe','Mañjutara Kuñja-tala','Sakhi ushering Radha','Varies by tradition',
 `प्रविश राधे माधवसमीपमिह
@@ -531,7 +607,10 @@ S(21,11,'Praviśa Rādhe','Mañjutara Kuñja-tala','Sakhi ushering Radha','Varie
 `praviśa rādhe mādhava-samīpam iha
 mañjutara-kuñja-tala-keli-sadane`,
 `Enter now, Radha, into Madhava's presence — into the lovely bower-chamber set for love beneath the trees. The sakhi leads Radha to the waiting Krishna; the long-deferred union is at hand.`,
-`The sakhi ushers Radha into the bower. In devotional reading this is the soul finally led to the threshold of union with the divine — pride dissolved, the long separation ending.`),
+`The sakhi ushers Radha into the bower. In devotional reading this is the soul finally led to the threshold of union with the divine — pride dissolved, the long separation ending.`,
+`ப்ரவிஶ ராதே ! மாதவ ஸமீபம் இஹ ।
+மஞ்ஜுதர குஞ்ஜ தல கேலி ஸதனே ॥`,
+`ராதே, இப்போது மாதவன் முன்னிலையில் நுழை — மரங்களுக்குக் கீழே காதலுக்கு ஒப்பனை செய்த அழகிய குஞ்ஜ அறைக்குள் வா. சகி காத்திருக்கும் கிருஷ்ணனிடம் ராதையை அழைத்துச் செல்கிறாள்; நெடுங்காலம் தள்ளிப்போன ஐக்கியம் இதோ வந்துவிட்டது.`),
 
 S(22,12,'Rādhā-vadana-vilokana','Harim Eka-rasam','Poet / narrator','Varies by tradition',
 `राधावदनविलोकनविकसितविविधविकारविभङ्गम्
@@ -541,7 +620,10 @@ S(22,12,'Rādhā-vadana-vilokana','Harim Eka-rasam','Poet / narrator','Varies by
 `rādhā-vadana-vilokana-vikasita-vividha-vikāra-vibhaṅgam
 harim eka-rasam`,
 `Gazing upon Radha's face, every play of feeling blossoming across it in the moonlight, Hari is overcome — the two at last united, each lost wholly in the other.`,
-`Canto 12 (Suprita Pitambara) celebrates the union. The reunion is described with reverence and delicacy — the bliss of sanyoga after the long fire of separation. Radha's face becomes Krishna's entire universe.`),
+`Canto 12 (Suprita Pitambara) celebrates the union. The reunion is described with reverence and delicacy — the bliss of sanyoga after the long fire of separation. Radha's face becomes Krishna's entire universe.`,
+`ராதா வதன விலோகன விகஸித விவித விகார விபங்கம் ।
+ஹரிம் ஏக ரஸம் ॥`,
+`ராதையின் முகத்தில் ஒவ்வொரு உணர்வும் நிலவொளியில் மலருவதைப் பார்த்து ஹரி உருகிப் போகிறான் — இருவரும் கடைசியில் ஒன்றுபடுகின்றனர், ஒவ்வொருவரும் மற்றவரில் முழுவதும் கரைகிறார்கள்.`),
 
 S(23,12,'Kisalaya-śayana-tale','Kṣaṇam Adhunā','Krishna to Radha','Varies by tradition',
 `किसलय शयन तले
@@ -551,7 +633,10 @@ S(23,12,'Kisalaya-śayana-tale','Kṣaṇam Adhunā','Krishna to Radha','Varies 
 `kisalaya-śayana-tale
 kuru kāmini caraṇa-nalina-niveśam`,
 `Upon this couch of tender leaves, O loving one, set your lotus feet; let your wandering steps find their rest here with me. Krishna welcomes Radha into intimate and tender union.`,
-`Tenderness after union. The imagery of the leaf-couch and lotus feet turns physical intimacy into a form of worship — the beloved serving the beloved. Divine love expressed not as power but as unhurried, reverent care.`),
+`Tenderness after union. The imagery of the leaf-couch and lotus feet turns physical intimacy into a form of worship — the beloved serving the beloved. Divine love expressed not as power but as unhurried, reverent care.`,
+`கிஸலய ஶயன தலே ।
+குரு காமினி ! சரண நலின விநிவேஶம் ॥`,
+`மென்மையான இலைப் படுக்கையில், அன்பானவளே, உன் தாமரைப் பாதங்களை வை; உன் அலைந்த அடிகள் இங்கே என்னுடன் ஓய்வு கொள்ளட்டும். கிருஷ்ணன் ராதையை மென்மையான ஐக்கியத்திற்கு வரவேற்கிறான்.`),
 
 S(24,12,'Kuru Yadu-nandana','Nijagāda Sā','Radha to Krishna','Arabhi / varies',
 `कुरु यदुनन्दन चन्दन शिशिर तरेण करेण पयोधरे ।
@@ -561,7 +646,10 @@ S(24,12,'Kuru Yadu-nandana','Nijagāda Sā','Radha to Krishna','Arabhi / varies'
 `kuru yadu-nandana candana-śiśira-tareṇa kareṇa payodhare
 mṛga-mada-patrakam atra manobhava-maṅgala-kalaśa-sahodare`,
 `O son of the Yadus — with your hand cool as sandal, draw musk designs upon my breast; arrange my loosened garments, my hair, my ornaments. After union, Radha asks Krishna to adorn her — and the Lord lovingly does so, completing the great drama of love.`,
-`The final Ashtapadi. In the most astonishing reversal: Krishna — Lord of all worlds — adorns Radha with his own hands. Divine love expressed not in power but in intimate, unhurried tenderness. Jayadeva's final benediction follows.`)
+`The final Ashtapadi. In the most astonishing reversal: Krishna — Lord of all worlds — adorns Radha with his own hands. Divine love expressed not in power but in intimate, unhurried tenderness. Jayadeva's final benediction follows.`,
+`குரு யது நந்தன ! சந்தன ஶிஶிர தரேண கரேண பயோதரே ।
+ம்ருக மத பத்ரகம் அத்ர மனோ பவ மங்கள கலஶ ஸஹோதரே ॥`,
+`யது குல மைந்தனே — சந்தனம் போல குளிர்ந்த உன் கையால் என் மார்பில் கஸ்தூரி வடிவங்களை வரை; என் அலசிய ஆடைகளையும் கூந்தலையும் ஆபரணங்களையும் சீரமை. ஐக்கியத்திற்குப் பின் ராதை கிருஷ்ணனை அலங்கரிக்கச் சொல்கிறாள் — பகவான் அன்போடு செய்கிறான், காதலின் பெரிய நாடகத்தை நிறைவு செய்கிறான்.`)
 ];
 
 const CG = Object.keys(CANTOS).map(Number).map(c => ({
@@ -679,6 +767,10 @@ function ContentView(item, tab) {
     BlkHd('हिन्दी उच्चारण'),
     el('div', { class: 'hi-t' }, item.hi_t)
   ));
+  if ((all || tab === 'ta') && item.ta_t) kids.push(el('div', { class: 'blk' },
+    BlkHd('தமிழ் · Tamil Transliteration'),
+    el('div', { class: 'ta-t' }, item.ta_t)
+  ));
   if (all || tab === 'rom') kids.push(el('div', { class: 'blk' },
     BlkHd('Roman · IAST'),
     el('div', { class: 'rom' }, item.translit)
@@ -686,6 +778,10 @@ function ContentView(item, tab) {
   if (all || tab === 'en') kids.push(el('div', { class: 'blk' },
     BlkHd('English Meaning', pid, 'e'),
     el('div', { class: 'en-m' }, item.en)
+  ));
+  if ((all || tab === 'en' || tab === 'ta') && item.ta_m) kids.push(el('div', { class: 'blk' },
+    BlkHd('தமிழ் பொருள் · Tamil Meaning'),
+    el('div', { class: 'ta-m' }, item.ta_m)
   ));
   if (all || tab === 'ctx') {
     if (all) {
@@ -887,7 +983,7 @@ function render() {
   const canto = item && !item.isInv ? CANTOS[item.c] : null;
   const hasNext = State.cur !== 'inv' ? State.cur < 24 : true;
 
-  const TABS = [['all','All'],['dev','Sanskrit'],['hi','हिन्दी'],['rom','Roman'],['en','Meaning'],['ctx','Context']];
+  const TABS = [['all','All'],['dev','Sanskrit'],['hi','हिन्दी'],['ta','தமிழ்'],['rom','Roman'],['en','Meaning'],['ctx','Context']];
 
   const heroKids = item.isInv ? [
     el('div', { class: 'h-canto' }, 'Maṅgalācaraṇa · Benedictory Opening'),
